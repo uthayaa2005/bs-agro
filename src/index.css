@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #fafaf8;
+  color: #1a2018;
+  overflow-x: hidden;
+}
+
+/* Spec table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.spec-table tr:nth-child(even) {
+  background: #f5fbf0;
+}
+.spec-table td {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #5a6b52;
+  border: 1px solid #d4e8c2;
+}
+.spec-table td:first-child {
+  font-weight: 600;
+  color: #1a2018;
+  width: 45%;
+}
+
+/* Bar fill transition */
+.bar-fill {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 3px;
+  width: 0;
+  transition: width 1s 0.5s ease;
+}
+
+.bar-fill-red {
+  background: #e88;
+}
+
+/* Page animation */
+.page-enter {
+  animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Ticker animation */
+.ticker-inner {
+  animation: ticker 22s linear infinite;
+  display: flex;
+  white-space: nowrap;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Product card shine */
+.prod-img-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+  z-index: 2;
+}
+
+.prod-card:hover .prod-img-shine {
+  left: 140%;
+}
+
+/* Toast */
+.toast-anim {
+  animation: fadeUp 0.3s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+
+/* Hero wave */
+.hero-wave {
+  display: block;
+  width: 100%;
+  margin-bottom: -2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #2d8a4e; border-radius: 3px; }
