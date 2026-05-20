@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { products } from "../data/data";
 import ProductCard from "../components/ProductCard";
 import SectionHeader from "../components/SectionHeader";
+import CategoryIcon from "../components/CategoryIcon";
 import Footer from "../components/Footer";
 
 const ENQUIRY_LINK =
@@ -10,50 +11,25 @@ const ENQUIRY_LINK =
 const LOCATION_LINK =
   "https://www.google.com/maps/place/BS+AGRO+ROTAVATORS/@11.5384857,78.813587,17z/data=!3m1!4b1!4m6!3m5!1s0x3bab7311d046f447:0x410edf7e86ac09d2!8m2!3d11.5384857!4d78.813587!16s%2Fg%2F11r8fkfnzb?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D";
 
-const CATEGORIES = [
-  {
-    cat: "Agriculture Rotavator",
-    icon: "🔄",
-    label: "Agriculture Rotavators",
-    count: "14 products",
-  },
-  {
-    cat: "Gear Box",
-    icon: "⚙️",
-    label: "Gear Boxes",
-    count: "3 products",
-  },
-  {
-    cat: "Accessories",
-    icon: "🔩",
-    label: "Accessories",
-    count: "2 products",
-  },
-  {
-    cat: "Tiller",
-    icon: "🌱",
-    label: "Tillers",
-    count: "1 product",
-  },
-  {
-    cat: "Ridger",
-    icon: "🌾",
-    label: "Ridgers",
-    count: "1 product",
-  },
-  {
-    cat: "Side Disk",
-    icon: "💿",
-    label: "Side Disks",
-    count: "1 product",
-  },
-  {
-    cat: "New Items",
-    icon: "✨",
-    label: "New Items",
-    count: "3 products",
-  },
+const CATEGORY_META = [
+  { cat: "Agriculture Rotavator", label: "Agriculture Rotavators" },
+  { cat: "Gear Box", label: "Gear Boxes" },
+  { cat: "Accessories", label: "Accessories" },
+  { cat: "Tiller", label: "Tillers" },
+  { cat: "Rotavator", label: "Rotavators" },
+  { cat: "Side Disk", label: "Side Disks" },
+  { cat: "Ridger", label: "Ridgers" },
+  { cat: "New Items", label: "New Items" },
 ];
+
+const CATEGORIES = CATEGORY_META.map(({ cat, label }) => {
+  const n = products.filter((p) => p.cat === cat).length;
+  return {
+    cat,
+    label,
+    count: `${n} product${n === 1 ? "" : "s"}`,
+  };
+});
 
 const WHY_CARDS = [
   {
@@ -288,7 +264,7 @@ export default function HomePage({
           sub="Click any category to explore"
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 
           {CATEGORIES.map((c, i) => (
             <div
@@ -298,8 +274,8 @@ export default function HomePage({
               style={{ animationDelay: `${i * 0.05}s` }}
             >
 
-              <div className="w-12 h-12 rounded-xl bg-[#eaf5e2] flex items-center justify-center text-[22px] mx-auto mb-3 group-hover:bg-y1">
-                {c.icon}
+              <div className="w-12 h-12 rounded-xl bg-[#eaf5e2] flex items-center justify-center mx-auto mb-3 group-hover:bg-y1 group-hover:text-soil text-g2 transition-colors">
+                <CategoryIcon category={c.cat} />
               </div>
 
               <div className="text-[12px] sm:text-[13px] font-semibold group-hover:text-white">

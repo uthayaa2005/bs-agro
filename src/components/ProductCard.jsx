@@ -35,7 +35,9 @@ export default function ProductCard({
         <img
           src={img}
           alt={name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.04]"
           onError={(e) => {
             e.target.style.display = "none";
             e.target.nextSibling.style.display = "flex";

@@ -51,13 +51,24 @@ export default function ProductDetailPage({
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* IMAGE */}
           <div className="w-full lg:w-[380px] flex justify-center">
-            <div className="w-full h-[320px] rounded-2xl bg-[#eaf5e2] border-2 border-y1/30 overflow-hidden">
+            <div className="relative w-full min-h-[280px] h-[320px] md:h-[380px] rounded-2xl bg-[#eaf5e2] border-2 border-y1/30 overflow-hidden flex items-center justify-center">
               <img
                 src={p.img}
                 alt={p.name}
-                className="w-full h-full object-cover"
-                onError={(e) => (e.target.style.display = "none")}
+                loading="eager"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-contain p-4"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  if (e.target.nextSibling) e.target.nextSibling.style.display = "flex";
+                }}
               />
+              <div
+                className="hidden absolute inset-0 items-center justify-center text-[64px] bg-[#eaf5e2]"
+                aria-hidden
+              >
+                {p.icon}
+              </div>
             </div>
           </div>
 

@@ -63,7 +63,7 @@ export default function ProductsPage({
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 px-5 py-4 rounded-2xl min-w-[130px]">
               <div className="text-2xl md:text-3xl font-bold text-yellow-400">
-                21+
+                {products.length}+
               </div>
 
               <div className="text-sm text-gray-300 mt-1">
