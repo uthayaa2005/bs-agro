@@ -110,3 +110,27 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #2d8a4e; border-radius: 3px; }
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-scaleIn,
+  .animate-fadeUp,
+  .animate-float,
+  .animate-borderGlow,
+  .animate-glow,
+  .animate-whatsappJump {
+    animation: none !important;
+  }
+}

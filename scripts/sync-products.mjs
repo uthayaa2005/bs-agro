@@ -10,6 +10,14 @@ const src = JSON.parse(
 );
 
 const nameFix = {
+  "RD Exle 23 Weeder Rotavator":
+    "5 Feet 24 Blade Weeder Rotavator",
+  "RD Exle 21 Banana Rotavator":
+    "6 Feet 42 Blade Double Side Drive Rotavator",
+  "RD Exle 52 Multi Speed Rotavator":
+    "24 Blade 4 Feet Mini Rotavator",
+  "RD Exle 54 Multi Speed Rotavator":
+    "20 Blade 3.5 Feet Mini Rotavator",
   "3 feet  22 blade Reverse Forward Rotavator":
     "3 Feet 22 Blade Reverse Forward Rotavator",
   "42 blade dobul sid draive high clearance  Rotavator":
@@ -28,18 +36,18 @@ const nameFix = {
   "20 blade single Speed Rotavator": "20 Blade Single Speed Rotavator",
   "36 blade medium heavy  high clearance Multi  speed rotavators":
     "36 Blade Medium Heavy High Clearance Multi Speed Rotavator",
-  "250 RPM Heavy Duty  Gear Box": "250 RPM Heavy Duty Gear Box",
-  "250 RPM Rotavator Gear Boxes": "250 RPM Rotavator Gear Box",
+  "250 RPM Heavy Duty  Gear Box": "42 Blade Ultra Clearance Banana Rotavator",
   "34inch Rotavator PTO Shaft": "34 Inch Rotavator PTO Shaft",
   "4 Feet  30 Blade  Multi Speed Rotavator":
     "4 Feet 30 Blade Multi Speed Rotavator",
   "29inch Rotavator Side Disk": "29 Inch Rotavator Side Disk",
+  "Single Speed Rotary Tiller": "Reverse Forward Tiller Rotavator",
   "36 blade big top link multi speed rotavator":
     "36 Blade Big Top Link Multi Speed Rotavator",
 };
 
 const catMap = {
-  "Agriculture Rotavator": "Agriculture Rotavator",
+  "Agriculture Rotavator": "Rotavator",
   "Agriculture Rotavator Gear Boxes": "Gear Box",
   "Agriculture Rotavator Accessories": "Accessories",
   "Agriculture Rotavator Tiller": "Tiller",
@@ -62,7 +70,7 @@ const specKeyMap = {
 };
 
 const icons = {
-  "Agriculture Rotavator": "🔄",
+  Rotavator: "🔄",
   "Gear Box": "⚙️",
   Accessories: "🔩",
   Tiller: "🌱",
@@ -97,16 +105,20 @@ function normalizeSpec(raw) {
 const descOverrides = {
   "3 Feet 16 Blade Single Speed Rotavator":
     "Entry-level single-speed rotavator with 16 blades and 3 feet working width. Ideal for 35–50 HP tractors on small to medium farms. BS Agro direct manufacturer price from Salem.",
-  "RD Exle 23 Weeder Rotavator":
+  "5 Feet 24 Blade Weeder Rotavator":
     "Specialised weeder rotavator with 24 blades and 5 feet width — combines soil preparation and weed control in one pass.",
-  "RD Exle 21 Banana Rotavator":
-    "Heavy-duty 7 feet banana plantation rotavator with 48 blades for thorough tillage in plantation conditions.",
+  "6 Feet 42 Blade Double Side Drive Rotavator":
+    "Heavy-duty 6 feet double side drive rotavator with 42 blades for deep, uniform tillage on medium to large farms.",
   "3 Feet 22 Blade Reverse Forward Rotavator":
     "Reverse and forward rotavator with 22 Y-type blades, mild steel build, 3 feet working width. Saves fuel and labour on compact fields.",
-  "RD Exle 52 Multi Speed Rotavator":
-    "Multi-speed rotavator, 36 blades, 3.5 feet size. Adjustable speeds for different soil conditions.",
-  "Single Speed Rotary Tiller":
-    "Single-speed rotary tiller with 36 blades, 5 feet width. Reliable seedbed preparation for medium farms.",
+  "20 Blade 3.5 Feet Mini Rotavator":
+    "Compact 3.5 feet mini rotavator with 20 blades — ideal for small tractors and tight field work.",
+  "42 Blade Ultra Clearance Banana Rotavator":
+    "42 blade ultra clearance banana rotavator for plantation tillage — heavy-duty build for banana and wide-row crops.",
+  "24 Blade 4 Feet Mini Rotavator":
+    "Compact 4 feet mini rotavator with 24 blades — ideal for smaller tractors and narrow fields.",
+  "Reverse Forward Tiller Rotavator":
+    "Reverse and forward tiller rotavator with 36 blades and 5 feet width — versatile soil preparation in both directions.",
   "Hydraulic Reversible M B Plough":
     "Hydraulic reversible MB plough for 45 HP tractors, 2 tynes. Efficient primary tillage with auto reset.",
 };

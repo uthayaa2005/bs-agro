@@ -4,19 +4,19 @@ import ProductCard from "../components/ProductCard";
 import SectionHeader from "../components/SectionHeader";
 import CategoryIcon from "../components/CategoryIcon";
 import Footer from "../components/Footer";
+import Reveal from "../components/Reveal";
+import { ENQUIRY_FORM_URL } from "../constants/links";
 
-const ENQUIRY_LINK =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfjaAvxkx2hAlansEabrZOVZNDcSmHQ2XauLMOtP7GtPhMlDQ/viewform?usp=header";
+const ENQUIRY_LINK = ENQUIRY_FORM_URL;
 
 const LOCATION_LINK =
   "https://www.google.com/maps/place/BS+AGRO+ROTAVATORS/@11.5384857,78.813587,17z/data=!3m1!4b1!4m6!3m5!1s0x3bab7311d046f447:0x410edf7e86ac09d2!8m2!3d11.5384857!4d78.813587!16s%2Fg%2F11r8fkfnzb?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D";
 
 const CATEGORY_META = [
-  { cat: "Agriculture Rotavator", label: "Agriculture Rotavators" },
-  { cat: "Gear Box", label: "Gear Boxes" },
+  { cat: "Rotavator", label: "Rotavators" },
+  { cat: "Cultivator", label: "Cultivators" },
   { cat: "Accessories", label: "Accessories" },
   { cat: "Tiller", label: "Tillers" },
-  { cat: "Rotavator", label: "Rotavators" },
   { cat: "Side Disk", label: "Side Disks" },
   { cat: "Ridger", label: "Ridgers" },
   { cat: "New Items", label: "New Items" },
@@ -177,7 +177,7 @@ export default function HomePage({
 
       <button
         onClick={() => goPage("products")}
-        className="bg-y1 text-soil px-6 py-3 rounded-lg text-[14px] font-semibold hover:-translate-y-1 transition-all duration-200"
+        className="bg-y1 text-soil px-6 py-3 rounded-lg text-[14px] font-semibold hover:-translate-y-1 transition-all duration-200 animate-glow min-h-[48px]"
       >
         Browse Products
       </button>
@@ -248,7 +248,7 @@ export default function HomePage({
         />
 
         <StatItem
-          target={21}
+          target={products.length}
           dec={0}
           suffix="+"
           label="Products"
@@ -257,57 +257,57 @@ export default function HomePage({
       </div>
 
       {/* CATEGORIES */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-12 py-10 bg-white">
+      <Reveal as="section" className="px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 bg-white">
 
         <SectionHeader
           title="Product Categories"
           sub="Click any category to explore"
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
 
           {CATEGORIES.map((c, i) => (
-            <div
+            <Reveal
               key={c.cat}
+              delay={Math.min(i * 0.05, 0.25)}
               onClick={() => filterProducts(c.cat)}
-              className="bg-white border border-bd rounded-xl p-4 text-center cursor-pointer hover:bg-g1 hover:border-g1 group transition-all duration-300"
-              style={{ animationDelay: `${i * 0.05}s` }}
+              className="bg-white border border-bd rounded-xl p-3 sm:p-4 text-center cursor-pointer hover:bg-g1 hover:border-g1 group transition-all duration-300 active:scale-[0.98] min-h-[100px]"
             >
 
-              <div className="w-12 h-12 rounded-xl bg-[#eaf5e2] flex items-center justify-center mx-auto mb-3 group-hover:bg-y1 group-hover:text-soil text-g2 transition-colors">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#eaf5e2] flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:bg-y1 group-hover:text-soil text-g2 transition-colors animate-float" style={{ animationDelay: `${i * 0.15}s` }}>
                 <CategoryIcon category={c.cat} />
               </div>
 
-              <div className="text-[12px] sm:text-[13px] font-semibold group-hover:text-white">
+              <div className="text-[11px] sm:text-[13px] font-semibold group-hover:text-white leading-tight">
                 {c.label}
               </div>
 
-              <div className="text-[11px] text-mu mt-1 group-hover:text-y2">
+              <div className="text-[10px] sm:text-[11px] text-mu mt-1 group-hover:text-y2">
                 {c.count}
               </div>
 
-            </div>
+            </Reveal>
           ))}
 
         </div>
-      </section>
+      </Reveal>
 
       {/* FEATURED PRODUCTS */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-12 py-10">
+      <Reveal as="section" className="px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10" delay={0.05}>
 
         <SectionHeader
           title="Featured Products"
           sub="Click a product to view details"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
 
           {products.slice(0, 6).map((p, i) => (
             <ProductCard
               key={p.id}
               product={p}
               onClick={() => openProduct(p.id)}
-              delay={i * 0.05}
+              delay={Math.min(i * 0.05, 0.3)}
             />
           ))}
 
@@ -323,10 +323,10 @@ export default function HomePage({
           </button>
 
         </div>
-      </section>
+      </Reveal>
 
       {/* PROMO */}
-      <div className="bg-g1 px-4 sm:px-6 md:px-8 lg:px-12 py-10 flex flex-col items-center justify-center gap-6 relative overflow-hidden text-center">
+      <Reveal as="div" className="bg-g1 px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 flex flex-col items-center justify-center gap-5 sm:gap-6 relative overflow-hidden text-center">
 
         <div className="absolute -right-10 -top-10 w-[160px] h-[160px] rounded-full bg-y1 opacity-[0.06]" />
 
@@ -374,10 +374,10 @@ export default function HomePage({
           </a>
 
         </div>
-      </div>
+      </Reveal>
 
       {/* WHY CHOOSE */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-12 py-10 bg-white">
+      <Reveal as="section" className="px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10 bg-white">
 
         <SectionHeader
           title="Why Choose BS Agro?"
@@ -387,10 +387,10 @@ export default function HomePage({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
           {WHY_CARDS.map((w, i) => (
-            <div
+            <Reveal
               key={w.title}
-              className="border border-bd rounded-xl p-5"
-              style={{ animationDelay: `${i * 0.05}s` }}
+              delay={Math.min(i * 0.07, 0.28)}
+              className="border border-bd rounded-xl p-4 sm:p-5 hover:border-g3 transition-colors"
             >
 
               <div className="text-[28px] mb-3">
@@ -405,24 +405,21 @@ export default function HomePage({
                 {w.text}
               </div>
 
-            </div>
+            </Reveal>
           ))}
 
         </div>
-      </section>
+      </Reveal>
 
       {/* REVIEWS */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-12 py-10">
+      <Reveal as="section" className="px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-10">
 
         <SectionHeader title="What Farmers Say" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {SAMPLE_REVIEWS.map((r, i) => (
-            <div
-              key={i}
-              className="bg-white border border-bd rounded-xl p-5"
-            >
+            <Reveal key={i} delay={Math.min(i * 0.08, 0.24)} className="bg-white border border-bd rounded-xl p-4 sm:p-5">
 
               <div className="flex items-center gap-3 mb-3">
 
@@ -456,11 +453,11 @@ export default function HomePage({
                 {r.prod}
               </div>
 
-            </div>
+            </Reveal>
           ))}
 
         </div>
-      </section>
+      </Reveal>
 
       {/* CONTACT STRIP */}
       <div className="bg-y1 px-4 sm:px-6 md:px-8 lg:px-12 py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">

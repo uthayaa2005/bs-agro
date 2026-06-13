@@ -64,6 +64,20 @@ module.exports = {
           from: { opacity: "0", transform: "translateY(20px) scale(0.98)" },
           to: { opacity: "1", transform: "translateY(0) scale(1)" },
         },
+        whatsappJump: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(-14px)" },
+          "50%": { transform: "translateY(-4px)" },
+          "75%": { transform: "translateY(-10px)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+        borderGlow: {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(45,138,78,0.3)" },
+          "50%": { boxShadow: "0 0 0 3px rgba(45,138,78,0.12)" },
+        },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
@@ -80,6 +94,9 @@ module.exports = {
         pulse2: "pulse2 3s ease-in-out infinite",
         navSlide: "navSlide 0.5s cubic-bezier(0.22,1,0.36,1) both",
         pageIn: "pageIn 0.45s cubic-bezier(0.22,1,0.36,1) both",
+        whatsappJump: "whatsappJump 1.8s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
+        borderGlow: "borderGlow 2s ease-in-out infinite",
       },
     },
   },

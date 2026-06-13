@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import Navbar from "./components/Navbar";
 import Ticker from "./components/Ticker";
 import HomePage from "./pages/HomePage";
@@ -7,18 +7,31 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import AboutPage from "./pages/AboutPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import ContactPage from "./pages/ContactPage";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+import TrustStrip from "./components/TrustStrip";
+import MobileBottomBar from "./components/MobileBottomBar";
 import { parseHash, hashFor } from "./utils/historyNav";
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState("home");
   const [activeFilter, setActiveFilter] = React.useState("All");
   const [selectedProduct, setSelectedProduct] = React.useState(null);
+  const routeRef = useRef({ page: "home", productId: null, filter: "All" });
 
   const applyRoute = useCallback((route) => {
+    const prev = routeRef.current;
+    const pageChanged = prev.page !== route.page;
+    const productChanged = prev.productId !== route.productId;
+
     setCurrentPage(route.page);
     setSelectedProduct(route.productId);
     setActiveFilter(route.filter);
-    window.scrollTo(0, 0);
+
+    if (pageChanged || productChanged) {
+      window.scrollTo(0, 0);
+    }
+
+    routeRef.current = route;
   }, []);
 
   useEffect(() => {
@@ -65,6 +78,13 @@ export default function App() {
     navigate("products", { filter: cat });
   };
 
+  const updateProductsFilter = useCallback((cat) => {
+    const route = { page: "products", productId: null, filter: cat };
+    setActiveFilter(cat);
+    routeRef.current = route;
+    window.history.replaceState(route, "", hashFor(route));
+  }, []);
+
   const openProduct = (id) => {
     navigate("product-detail", { productId: id });
   };
@@ -80,9 +100,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-cr font-dm text-tx overflow-x-hidden">
       <Navbar currentPage={currentPage} goPage={goPage} />
+      <TrustStrip />
       <Ticker />
 
-      <div key={currentPage}>
+      <div
+        key={currentPage}
+        className="pb-[calc(3.5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
+      >
         {currentPage === "home" && (
           <HomePage
             goPage={goPage}
@@ -94,6 +118,7 @@ export default function App() {
           <ProductsPage
             openProduct={openProduct}
             initialFilter={activeFilter}
+            onFilterChange={updateProductsFilter}
           />
         )}
         {currentPage === "product-detail" && selectedProduct && (
@@ -101,13 +126,18 @@ export default function App() {
             productId={selectedProduct}
             goBack={goBack}
             openProduct={openProduct}
-            goPage={goPage}
           />
         )}
         {currentPage === "about" && <AboutPage />}
         {currentPage === "reviews" && <ReviewsPage />}
         {currentPage === "contact" && <ContactPage />}
       </div>
+
+      {(currentPage === "home" || currentPage === "products") && (
+        <WhatsAppFloat />
+      )}
+
+      <MobileBottomBar currentPage={currentPage} goPage={goPage} />
     </div>
   );
 }

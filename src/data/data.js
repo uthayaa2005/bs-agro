@@ -7,7 +7,7 @@ export const products = [
   {
     "id": 1,
     "name": "3 Feet 16 Blade Single Speed Rotavator",
-    "cat": "Agriculture Rotavator",
+    "cat": "Rotavator",
     "price": "₹54,000/Piece",
     "badge": "Popular",
     "icon": "🔄",
@@ -31,8 +31,8 @@ export const products = [
   },
   {
     "id": 2,
-    "name": "RD Exle 23 Weeder Rotavator",
-    "cat": "Agriculture Rotavator",
+    "name": "5 Feet 24 Blade Weeder Rotavator",
+    "cat": "Rotavator",
     "price": "₹1,20,000/Piece",
     "badge": "",
     "icon": "🔄",
@@ -56,58 +56,67 @@ export const products = [
   },
   {
     "id": 3,
-    "name": "RD Exle 21 Banana Rotavator",
-    "cat": "Agriculture Rotavator",
+    "name": "6 Feet 42 Blade Double Side Drive Rotavator",
+    "cat": "Rotavator",
     "price": "₹1,55,000/Piece",
     "badge": "",
     "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2023/1/PS/KU/SV/20664883/316113481-169468975708021-473813808091560151-n-500x500.jpg",
     "imgs": [],
     "spec": {
-      "Width": "7 Feet",
+      "Width": "6 Feet",
       "Brand": "BS Agro",
-      "Blades": "48",
-      "Type": "Banana Rotavator",
+      "Blades": "42",
+      "Type": "Double Side Drive Rotavator",
       "Model": "RD Exle 21"
     },
-    "desc": "Heavy-duty 7 feet banana plantation rotavator with 48 blades for thorough tillage in plantation conditions.",
+    "desc": "Heavy-duty 6 feet double side drive rotavator with 42 blades for deep, uniform tillage on medium to large farms.",
     "features": [
-      "Width: 7 Feet",
+      "Width: 6 Feet",
       "Brand: BS Agro",
-      "Blades: 48",
-      "Type: Banana Rotavator",
+      "Blades: 42",
+      "Type: Double Side Drive Rotavator",
       "Model: RD Exle 21"
     ]
   },
   {
     "id": 4,
-    "name": "3 Feet 22 Blade Reverse Forward Rotavator",
-    "cat": "Agriculture Rotavator",
+    "name": "3 Feet Reverse Forward Tiller Rotavator",
+    "cat": "Rotavator",
     "price": "₹46,000/Piece",
     "badge": "",
     "icon": "🔄",
-    "img": "https://5.imimg.com/data5/SELLER/Default/2023/8/332503637/SO/ZI/RF/20664883/whatsapp-image-2023-07-27-at-2-23-29-pm-500x500.jpeg",
+    "img": "/products/3ft-reverse-forward-tiller-rotavator.png",
     "imgs": [],
+    "video": "/videos/3ft-reverse-forward-tiller-rotavator.mp4",
+    "searchTerms": [
+      "3 feet reverse forward tiller rotavator",
+      "reverse forward tiller rotavator",
+      "3 feet reverse forward tiller",
+      "22 blade reverse forward"
+    ],
     "spec": {
       "Material": "Mild Steel",
-      "Width": "3 feet",
+      "Width": "3 Feet",
       "Brand": "BS AGRO",
       "Usage": "Agriculture",
-      "Blades": "22"
+      "Blades": "22",
+      "Type": "Reverse Forward Tiller Rotavator"
     },
-    "desc": "Reverse and forward rotavator with 22 Y-type blades, mild steel build, 3 feet working width. Saves fuel and labour on compact fields.",
+    "desc": "3 feet reverse forward tiller rotavator with 22 Y-type blades, mild steel build. Runs in both directions — saves fuel and labour on compact fields.",
     "features": [
       "Material: Mild Steel",
-      "Width: 3 feet",
+      "Width: 3 Feet",
       "Brand: BS AGRO",
       "Usage: Agriculture",
-      "Blades: 22"
+      "Blades: 22",
+      "Type: Reverse Forward Tiller Rotavator"
     ]
   },
   {
     "id": 5,
-    "name": "RD Exle 52 Multi Speed Rotavator",
-    "cat": "Agriculture Rotavator",
+    "name": "24 Blade 4 Feet Mini Rotavator",
+    "cat": "Rotavator",
     "price": "₹60,000/Piece",
     "badge": "",
     "icon": "🔄",
@@ -115,24 +124,24 @@ export const products = [
     "imgs": [],
     "spec": {
       "Brand": "BS Agro",
-      "Blades": "36",
-      "Size": "3.5 Feet",
-      "Product Type": "Multi Speed Rotavator",
+      "Width": "4 Feet",
+      "Blades": "24",
+      "Type": "Mini Rotavator",
       "Model": "RD Exle 52"
     },
-    "desc": "Multi-speed rotavator, 36 blades, 3.5 feet size. Adjustable speeds for different soil conditions.",
+    "desc": "Compact 4 feet mini rotavator with 24 blades — ideal for smaller tractors and narrow fields.",
     "features": [
       "Brand: BS Agro",
-      "Blades: 36",
-      "Size: 3.5 Feet",
-      "Product Type: Multi Speed Rotavator",
+      "Width: 4 Feet",
+      "Blades: 24",
+      "Type: Mini Rotavator",
       "Model: RD Exle 52"
     ]
   },
   {
     "id": 6,
     "name": "42 Blade Double Side Drive High Clearance Rotavator",
-    "cat": "Agriculture Rotavator",
+    "cat": "Rotavator",
     "price": "₹1,42,600/Piece",
     "badge": "",
     "icon": "🔄",
@@ -159,12 +168,15 @@ export const products = [
   {
     "id": 7,
     "name": "42 Blade Heavy Duty High Clearance Multi Speed Rotavator",
-    "cat": "Agriculture Rotavator",
-    "price": "₹1,03,000/Piece",
+    "cat": "Rotavator",
+    "price": "₹1,07,500/Piece",
     "badge": "",
     "icon": "🔄",
-    "img": "https://5.imimg.com/data5/SELLER/Default/2026/5/607529392/BU/JB/TN/20664883/whatsapp-image-2026-05-13-at-3-30-17-pm-500x500.jpeg",
-    "imgs": [],
+    "img": "/products/42-blade-6ft-multispeed-rotavator-1.png",
+    "imgs": [
+      "/products/42-blade-6ft-multispeed-rotavator-2.png",
+      "/products/42-blade-6ft-multispeed-rotavator-3.png"
+    ],
     "spec": {
       "Width": "6 Feet",
       "HP": "50 HP",
@@ -186,8 +198,8 @@ export const products = [
   {
     "id": 8,
     "name": "42 Blade Medium Heavy High Clearance Multi Speed Rotavator",
-    "cat": "Agriculture Rotavator",
-    "price": "₹94,000/Piece",
+    "cat": "Rotavator",
+    "price": "₹1,01,000/Piece",
     "badge": "",
     "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2022/12/KF/YY/QW/20664883/mild-steel-rotavator-500x500.jpeg",
@@ -209,7 +221,7 @@ export const products = [
   {
     "id": 9,
     "name": "48 LJF Blade Multi Speed Rotavator",
-    "cat": "Agriculture Rotavator",
+    "cat": "Rotavator",
     "price": "₹1,18,000/Piece",
     "badge": "",
     "icon": "🔄",
@@ -233,34 +245,34 @@ export const products = [
   },
   {
     "id": 10,
-    "name": "RD Exle 54 Multi Speed Rotavator",
-    "cat": "Agriculture Rotavator",
+    "name": "20 Blade 3.5 Feet Mini Rotavator",
+    "cat": "Rotavator",
     "price": "₹60,000/Piece",
     "badge": "",
     "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2023/8/334093830/PZ/MT/SH/20664883/whatsapp-image-2023-08-11-at-16-09-39-500x500.jpeg",
     "imgs": [],
     "spec": {
-      "Width": "4 Feet",
-      "Blades": "24",
+      "Width": "3.5 Feet",
+      "Blades": "20",
       "Brand": "BS Agro",
-      "Type": "Multi Speed Rotavator",
+      "Type": "Mini Rotavator",
       "Model": "RD Exle 54"
     },
-    "desc": "RD Exle 54 Multi Speed Rotavator from B S Agro Equipments, Salem. Key details: Width: 4 Feet · Blades: 24 · Brand: BS Agro · Type: Multi Speed Rotavator. Direct manufacturer of rotavators and agricultural machinery. Call for quote and Tamil Nadu delivery.",
+    "desc": "Compact 3.5 feet mini rotavator with 20 blades — ideal for small tractors and tight field work.",
     "features": [
-      "Width: 4 Feet",
-      "Blades: 24",
+      "Width: 3.5 Feet",
+      "Blades: 20",
       "Brand: BS Agro",
-      "Type: Multi Speed Rotavator",
+      "Type: Mini Rotavator",
       "Model: RD Exle 54"
     ]
   },
   {
     "id": 11,
     "name": "42 Blade Multi Speed Regular Rotavator",
-    "cat": "Agriculture Rotavator",
-    "price": "₹87,000/Piece",
+    "cat": "Rotavator",
+    "price": "₹92,000/Piece",
     "badge": "",
     "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2024/1/380836391/WK/FY/QF/20664883/multi-speed-rotavator-gearbox-500x500.jpg",
@@ -284,8 +296,8 @@ export const products = [
   {
     "id": 12,
     "name": "36 Blade Multi Speed Regular Rotavator",
-    "cat": "Agriculture Rotavator",
-    "price": "₹85,000/Piece",
+    "cat": "Rotavator",
+    "price": "₹89,000/Piece",
     "badge": "",
     "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2022/12/SN/BM/YZ/20664883/mild-steel-multi-speed-rotavator-500x500.jpeg",
@@ -309,7 +321,7 @@ export const products = [
   {
     "id": 13,
     "name": "28 Blade Multi Speed Regular Rotavator",
-    "cat": "Agriculture Rotavator",
+    "cat": "Rotavator",
     "price": "₹78,000/Piece",
     "badge": "",
     "icon": "🔄",
@@ -336,7 +348,7 @@ export const products = [
   {
     "id": 14,
     "name": "20 Blade Single Speed Rotavator",
-    "cat": "Agriculture Rotavator",
+    "cat": "Rotavator",
     "price": "₹57,000/Piece",
     "badge": "",
     "icon": "🔄",
@@ -361,10 +373,10 @@ export const products = [
   {
     "id": 15,
     "name": "36 Blade Medium Heavy High Clearance Multi Speed Rotavator",
-    "cat": "Gear Box",
-    "price": "₹90,000/Piece",
+    "cat": "Rotavator",
+    "price": "₹95,000/Piece",
     "badge": "",
-    "icon": "⚙️",
+    "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2025/7/531168835/KF/UX/FH/20664883/whatsapp-image-2025-07-27-at-10-46-10-am-2-500x500.jpeg",
     "imgs": [],
     "spec": {
@@ -387,56 +399,29 @@ export const products = [
   },
   {
     "id": 16,
-    "name": "250 RPM Heavy Duty Gear Box",
-    "cat": "Gear Box",
-    "price": "₹1,40,000/Piece",
+    "name": "42 Blade Ultra Clearance Banana Rotavator",
+    "cat": "Rotavator",
+    "price": "₹1,45,000/Piece",
     "badge": "",
-    "icon": "⚙️",
+    "icon": "🔄",
     "img": "https://5.imimg.com/data5/SELLER/Default/2024/3/405192677/PB/DR/QK/20664883/freeimagekit-com-img-size-px-500x500.jpg",
     "imgs": [],
     "spec": {
-      "Type": "Heavy Duty Gear Box",
-      "Output": "250 RPM",
+      "Width": "7 Feet",
+      "Blades": "42",
+      "Type": "Ultra Clearance Banana Rotavator",
       "Material": "Mild Steel",
       "Brand": "B S Agro",
-      "Blades": "36",
-      "Overall Length": "5 Feet"
+      "Clearance": "Ultra High"
     },
-    "desc": "250 RPM Heavy Duty Gear Box from B S Agro Equipments, Salem. Key details: Type: Heavy Duty Gear Box · Output: 250 RPM · Material: Mild Steel · Brand: B S Agro. Direct manufacturer of rotavators and agricultural machinery. Call for quote and Tamil Nadu delivery.",
+    "desc": "42 blade ultra clearance banana rotavator for plantation tillage — heavy-duty build for banana and wide-row crops.",
     "features": [
-      "Type: Heavy Duty Gear Box",
-      "Output: 250 RPM",
+      "Width: 7 Feet",
+      "Blades: 42",
+      "Type: Ultra Clearance Banana Rotavator",
       "Material: Mild Steel",
       "Brand: B S Agro",
-      "Blades: 36",
-      "Overall Length: 5 Feet"
-    ]
-  },
-  {
-    "id": 17,
-    "name": "250 RPM Rotavator Gear Box",
-    "cat": "Gear Box",
-    "price": "₹1,40,000/Piece",
-    "badge": "",
-    "icon": "⚙️",
-    "img": "https://5.imimg.com/data5/SELLER/Default/2024/3/405187517/TZ/UZ/TJ/20664883/freeimagekit-com-img-size-px-3-500x500.jpg",
-    "imgs": [],
-    "spec": {
-      "Brand": "B S Agro",
-      "Material": "Mild Steel",
-      "Output": "250 RPM",
-      "Type": "Rotavator Gear Boxes",
-      "Usage": "Rotavator",
-      "Blades": "22"
-    },
-    "desc": "250 RPM Rotavator Gear Box from B S Agro Equipments, Salem. Key details: Brand: B S Agro · Material: Mild Steel · Output: 250 RPM · Type: Rotavator Gear Boxes. Direct manufacturer of rotavators and agricultural machinery. Call for quote and Tamil Nadu delivery.",
-    "features": [
-      "Brand: B S Agro",
-      "Material: Mild Steel",
-      "Output: 250 RPM",
-      "Type: Rotavator Gear Boxes",
-      "Usage: Rotavator",
-      "Blades: 22"
+      "Clearance: Ultra High"
     ]
   },
   {
@@ -494,8 +479,56 @@ export const products = [
     ]
   },
   {
+    "id": 28,
+    "name": "Rotavator Blade",
+    "cat": "Accessories",
+    "price": "₹140/Piece",
+    "badge": "",
+    "icon": "🔩",
+    "img": "https://5.imimg.com/data5/SELLER/Default/2022/12/BN/CJ/MX/20664883/mild-steel-rotavator-500x500.jpeg",
+    "imgs": [],
+    "spec": {
+      "Type": "Rotavator Blade",
+      "Material": "High Carbon Steel",
+      "Usage": "Rotavator",
+      "Brand": "B S Agro"
+    },
+    "desc": "Replacement rotavator blade — high carbon steel, BS Agro factory quality. ₹140 per piece.",
+    "features": [
+      "Type: Rotavator Blade",
+      "Material: High Carbon Steel",
+      "Usage: Rotavator",
+      "Brand: B S Agro",
+      "Factory-direct pricing"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Blade Bolt Nut",
+    "cat": "Accessories",
+    "price": "₹25/Set",
+    "badge": "",
+    "icon": "🔩",
+    "img": "https://5.imimg.com/data5/SELLER/Default/2024/3/405197048/LO/XU/QN/20664883/rotavator-side-gear-21-36-28-500x500.jpeg",
+    "imgs": [],
+    "spec": {
+      "Type": "Blade Bolt Nut",
+      "Usage": "Rotavator Blade Fixing",
+      "Material": "Mild Steel",
+      "Brand": "B S Agro"
+    },
+    "desc": "Rotavator blade bolt and nut set for secure blade mounting. ₹25 per set.",
+    "features": [
+      "Type: Blade Bolt Nut",
+      "Usage: Rotavator Blade Fixing",
+      "Material: Mild Steel",
+      "Brand: B S Agro",
+      "Complete bolt & nut set"
+    ]
+  },
+  {
     "id": 20,
-    "name": "Single Speed Rotary Tiller",
+    "name": "Reverse Forward Tiller Rotavator",
     "cat": "Tiller",
     "price": "₹79,500/Unit",
     "badge": "",
@@ -504,18 +537,18 @@ export const products = [
     "imgs": [],
     "spec": {
       "Brand": "B S Agro",
-      "Blades": "36 Blade",
+      "Blades": "36",
       "Width": "5 Feet",
-      "Speed": "Single Speed",
+      "Type": "Reverse Forward Tiller",
       "Material": "Mild Steel",
       "Color": "Orange"
     },
-    "desc": "Single-speed rotary tiller with 36 blades, 5 feet width. Reliable seedbed preparation for medium farms.",
+    "desc": "Reverse and forward tiller rotavator with 36 blades and 5 feet width — versatile soil preparation in both directions.",
     "features": [
       "Brand: B S Agro",
-      "Blades: 36 Blade",
+      "Blades: 36",
       "Width: 5 Feet",
-      "Speed: Single Speed",
+      "Type: Reverse Forward Tiller",
       "Material: Mild Steel",
       "Color: Orange"
     ]
@@ -606,8 +639,10 @@ export const products = [
     "price": "₹85,000/Piece",
     "badge": "New",
     "icon": "✨",
-    "img": "https://5.imimg.com/data5/SELLER/Default/2026/4/603385507/II/NH/FQ/20664883/file-00000000f6147208ba13d5d55f1c9189-500x500.png",
-    "imgs": [],
+    "img": "/products/hydraulic-mb-plough-1.png",
+    "imgs": [
+      "/products/hydraulic-mb-plough-2.png"
+    ],
     "spec": {
       "HP": "45 HP",
       "Tynes": "2 Tynes",
@@ -627,45 +662,152 @@ export const products = [
     ]
   },
   {
-    "id": 25,
-    "name": "36 Blade Big Top Link Multi Speed Rotavator",
-    "cat": "New Items",
-    "price": "₹92,500/Piece",
-    "badge": "New",
-    "icon": "✨",
-    "img": "https://5.imimg.com/data5/SELLER/Default/2025/7/531106690/CG/YO/GT/20664883/406007043-336271702361080-3996096624214634537-n-500x500.jpg",
+    "id": 27,
+    "name": "7 Feet 48 Blade Multi Speed Rotavator",
+    "cat": "Rotavator",
+    "price": "₹1,15,000/Piece",
+    "badge": "",
+    "icon": "🔄",
+    "img": "https://5.imimg.com/data5/SELLER/Default/2024/1/380840176/BN/KL/WF/20664883/7-feet-rotavator-500x500.jpg",
     "imgs": [],
     "spec": {
-      "Width": "5 Feet",
-      "HP": "40 HP",
-      "Brand": "BS AGRO",
-      "Blades": "36",
-      "Blade Type": "L Type"
+      "Width": "7 Feet",
+      "Blades": "48",
+      "Type": "Multi Speed Rotavator",
+      "Brand": "BS Agro",
+      "HP": "55 HP"
     },
-    "desc": "36 Blade Big Top Link Multi Speed Rotavator from B S Agro Equipments, Salem. Key details: Width: 5 Feet · HP: 40 HP · Brand: BS AGRO · Blades: 36. Direct manufacturer of rotavators and agricultural machinery. Call for quote and Tamil Nadu delivery.",
+    "desc": "Heavy-duty 7 feet multi-speed rotavator with 48 blades for large farms and plantation tillage. Adjustable speeds for different soil conditions.",
     "features": [
-      "Width: 5 Feet",
-      "HP: 40 HP",
-      "Brand: BS AGRO",
-      "Blades: 36",
-      "Blade Type: L Type"
+      "Width: 7 Feet",
+      "Blades: 48",
+      "Type: Multi Speed Rotavator",
+      "Brand: BS Agro",
+      "HP: 55 HP",
+      "ISO certified quality"
     ]
   },
   {
-    "id": 26,
-    "name": "Agricultural Plough",
-    "cat": "New Items",
-    "price": "₹39,000/Piece",
+    "id": 30,
+    "name": "9 Tine Cultivator 2 1/4 Safe 3 Feet Arm Cultivator",
+    "cat": "Cultivator",
+    "price": "₹44,000/Piece",
+    "badge": "New",
+    "icon": "🌾",
+    "img": "/products/9-arm-cultivator.png",
+    "imgs": [],
+    "spec": {
+      "Tynes": "9 Tynes",
+      "Arm Size": "2 1/4 Safe",
+      "Width": "3 Feet",
+      "Type": "Cultivator",
+      "Brand": "B S Agro"
+    },
+    "desc": "9 tine cultivator with 2 1/4 safe 3 feet arm — reliable secondary tillage for medium farms.",
+    "features": [
+      "Tynes: 9 Tynes",
+      "Arm Size: 2 1/4 Safe",
+      "Width: 3 Feet",
+      "Type: Cultivator",
+      "Brand: B S Agro",
+      "BS Agro factory quality"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "5 Tine Duck Feet Cultivator",
+    "cat": "Cultivator",
+    "price": "₹57,000/Piece",
+    "badge": "New",
+    "icon": "🌾",
+    "img": "/products/5-tine-duck-feet-cultivator.png",
+    "imgs": [],
+    "spec": {
+      "Tynes": "5 Tynes",
+      "Type": "Duck Feet Cultivator",
+      "Brand": "B S Agro",
+      "Usage": "Agriculture"
+    },
+    "desc": "5 tine duck feet cultivator for effective soil loosening and weed control between crop rows.",
+    "features": [
+      "Tynes: 5 Tynes",
+      "Type: Duck Feet Cultivator",
+      "Brand: B S Agro",
+      "Usage: Agriculture",
+      "Durable duck feet tines",
+      "Tractor mounted"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Gauge Wheels",
+    "cat": "Cultivator",
+    "price": "₹38,000/Piece",
     "badge": "",
-    "icon": "✨",
+    "icon": "🌾",
+    "img": "/products/gage-wheels.png",
+    "imgs": [],
+    "spec": {
+      "Type": "Gauge Wheels",
+      "Brand": "B S Agro",
+      "Usage": "Cultivator / Ridger",
+      "Material": "Mild Steel"
+    },
+    "desc": "Gauge wheels for cultivators and ridgers — depth control and stable field operation.",
+    "features": [
+      "Type: Gauge Wheels",
+      "Brand: B S Agro",
+      "Usage: Cultivator / Ridger",
+      "Material: Mild Steel",
+      "Depth control support"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Spring Cultivator 9 Arm",
+    "cat": "Cultivator",
+    "price": "₹42,000/Piece",
+    "badge": "New",
+    "icon": "🌾",
     "img": "https://5.imimg.com/data5/SELLER/Default/2024/1/380817267/FL/OI/KA/20664883/compressjpeg-online-image-500x500.jpg",
     "imgs": [],
-    "spec": {},
-    "desc": "Agricultural Plough from B S Agro Equipments, Salem. Direct manufacturer of rotavators and agricultural machinery. Call for quote and Tamil Nadu delivery.",
+    "spec": {
+      "Arms": "9 Arm",
+      "Type": "Spring Cultivator",
+      "Brand": "B S Agro",
+      "Usage": "Agriculture"
+    },
+    "desc": "Spring cultivator with 9 arms for flexible tillage. Bush type also available at ₹44,000.",
     "features": [
-      "BS Agro Equipments — Salem manufacturer",
-      "Factory-direct pricing available",
-      "Pan-Tamil Nadu delivery on request"
+      "Arms: 9 Arm",
+      "Type: Spring Cultivator",
+      "Brand: B S Agro",
+      "Spring-loaded tines",
+      "Bush type available — ₹44,000"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Spring Cultivator 9 Arm (Bush Type)",
+    "cat": "Cultivator",
+    "price": "₹44,000/Piece",
+    "badge": "New",
+    "icon": "🌾",
+    "img": "https://5.imimg.com/data5/SELLER/Default/2024/1/380817267/FL/OI/KA/20664883/compressjpeg-online-image-500x500.jpg",
+    "imgs": [],
+    "spec": {
+      "Arms": "9 Arm",
+      "Type": "Spring Cultivator Bush Type",
+      "Brand": "B S Agro",
+      "Usage": "Agriculture"
+    },
+    "desc": "Spring cultivator 9 arm with bush type fitting — enhanced durability for tough soil conditions.",
+    "features": [
+      "Arms: 9 Arm",
+      "Type: Bush Type",
+      "Brand: B S Agro",
+      "Spring cultivator design",
+      "Heavy-duty bush type arms"
     ]
   }
 ];

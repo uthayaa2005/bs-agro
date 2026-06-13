@@ -1,15 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { products } from "../data/data";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
+import { openWhatsApp, productQuoteMessage } from "../utils/whatsapp";
 
 export default function ProductDetailPage({
   productId,
   goBack,
   openProduct,
-  goPage,
 }) {
   const [activeTab, setActiveTab] = useState("desc");
+  const [activeImage, setActiveImage] = useState(null);
+  const [mediaMode, setMediaMode] = useState("photo");
   const tabsRef = useRef(null);
 
   const scrollToTab = (el) => {
@@ -21,7 +23,16 @@ export default function ProductDetailPage({
   };
 
   const p = products.find((x) => x.id === productId);
+
+  useEffect(() => {
+    setActiveImage(null);
+    setMediaMode("photo");
+  }, [productId]);
+
   if (!p) return null;
+
+  const galleryImages = [p.img, ...(p.imgs || [])].filter(Boolean);
+  const heroImage = activeImage || p.img;
 
   const related = products
     .filter((x) => x.id !== p.id && x.cat === p.cat)
@@ -29,8 +40,13 @@ export default function ProductDetailPage({
 
   const TABS = [
     { id: "desc", label: "Description" },
-    { id: "specs", label: "Specifications" },
-    { id: "features", label: "Features" },
+    ...(p.video ? [{ id: "video", label: "Video" }] : []),
+    ...(p.cat !== "Rotavator"
+      ? [
+          { id: "specs", label: "Specifications" },
+          { id: "features", label: "Features" },
+        ]
+      : []),
     ...(related.length ? [{ id: "related", label: "Related" }] : []),
   ];
 
@@ -40,98 +56,157 @@ export default function ProductDetailPage({
       <div className="bg-g1">
         <button
           onClick={goBack}
-          className="inline-flex items-center gap-2 text-y1 text-[14px] font-medium px-6 py-3 w-full hover:bg-white/10 transition"
+          className="inline-flex items-center gap-2 text-y1 text-[14px] font-medium px-4 sm:px-6 py-3 w-full hover:bg-white/10 transition min-h-[48px]"
         >
           ← Back to Products
         </button>
       </div>
 
       {/* HERO */}
-      <section className="bg-g1 px-6 md:px-12 py-10">
-        <div className="flex flex-col lg:flex-row gap-10 items-start">
-          {/* IMAGE */}
-          <div className="w-full lg:w-[380px] flex justify-center">
-            <div className="relative w-full min-h-[280px] h-[320px] md:h-[380px] rounded-2xl bg-[#eaf5e2] border-2 border-y1/30 overflow-hidden flex items-center justify-center">
-              <img
-                src={p.img}
-                alt={p.name}
-                loading="eager"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-contain p-4"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  if (e.target.nextSibling) e.target.nextSibling.style.display = "flex";
-                }}
-              />
-              <div
-                className="hidden absolute inset-0 items-center justify-center text-[64px] bg-[#eaf5e2]"
-                aria-hidden
-              >
-                {p.icon}
+      <section className="bg-g1 px-4 sm:px-6 md:px-12 py-6 sm:py-10">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-10 items-start">
+          <div className="w-full lg:w-[380px] flex flex-col items-center gap-3">
+            {p.video && (
+              <div className="flex gap-2 w-full max-w-sm">
+                <button
+                  type="button"
+                  onClick={() => setMediaMode("photo")}
+                  className={`flex-1 min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold transition active:scale-[0.98] ${
+                    mediaMode === "photo"
+                      ? "bg-y1 text-soil"
+                      : "bg-white/10 text-white border border-white/20"
+                  }`}
+                >
+                  Photo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMediaMode("video")}
+                  className={`flex-1 min-h-[44px] px-4 py-2 rounded-lg text-sm font-semibold transition active:scale-[0.98] ${
+                    mediaMode === "video"
+                      ? "bg-y1 text-soil"
+                      : "bg-white/10 text-white border border-white/20"
+                  }`}
+                >
+                  ▶ Video
+                </button>
               </div>
+            )}
+            <div className="relative w-full min-h-[220px] h-[260px] sm:min-h-[280px] sm:h-[320px] md:h-[380px] rounded-xl sm:rounded-2xl bg-[#eaf5e2] border-2 border-y1/30 overflow-hidden flex items-center justify-center">
+              {mediaMode === "video" && p.video ? (
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-black"
+                  src={p.video}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <>
+                  <img
+                    src={heroImage}
+                    alt={p.name}
+                    loading="eager"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain p-3 sm:p-4"
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                      if (e.target.nextSibling) e.target.nextSibling.style.display = "flex";
+                    }}
+                  />
+                  <div
+                    className="hidden absolute inset-0 items-center justify-center text-[48px] sm:text-[64px] bg-[#eaf5e2]"
+                    aria-hidden
+                  >
+                    {p.icon}
+                  </div>
+                </>
+              )}
             </div>
+            {mediaMode === "photo" && galleryImages.length > 1 && (
+              <div className="flex gap-2 w-full justify-center overflow-x-auto no-scrollbar pb-1">
+                {galleryImages.map((src) => (
+                  <button
+                    key={src}
+                    type="button"
+                    onClick={() => setActiveImage(src)}
+                    className={`shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-lg border-2 overflow-hidden bg-[#eaf5e2] min-h-[44px] ${
+                      heroImage === src ? "border-y1" : "border-white/20"
+                    }`}
+                  >
+                    <img src={src} alt="" className="w-full h-full object-contain p-1" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* INFO */}
-          <div className="flex-1 text-white">
-            <div className="inline-block bg-y1/20 border border-y1/40 text-y1 text-[12px] px-3 py-1 rounded-full mb-3">
+          <div className="flex-1 text-white w-full">
+            <div className="inline-block bg-y1/20 border border-y1/40 text-y1 text-[11px] sm:text-[12px] px-3 py-1 rounded-full mb-3">
               {p.cat}
             </div>
 
-            <h1 className="font-playfair text-[36px] md:text-[44px] font-bold mb-3">
+            <h1 className="font-playfair text-[26px] sm:text-[36px] md:text-[44px] font-bold mb-2 sm:mb-3 leading-tight">
               {p.name}
             </h1>
 
-            <div className="text-white/70 mb-2">
+            <div className="text-white/70 mb-2 text-sm sm:text-base">
               BS Agro Equipments · Salem, Tamil Nadu
             </div>
 
-            <div className="text-[28px] font-bold text-y1 mb-6">
+            <div className="text-[22px] sm:text-[28px] font-bold text-y1 mb-4 sm:mb-6 flex flex-wrap items-center gap-2">
               {p.price}
+              <span className="text-[10px] sm:text-[12px] font-semibold bg-y1/20 border border-y1/40 text-y1 px-2.5 py-1 rounded-full">
+                Factory Price
+              </span>
             </div>
 
-            {/* SPEC CHIPS */}
-            <div className="flex flex-wrap gap-3 mb-6">
-              {Object.entries(p.spec).map(([k, v]) => (
-                <div
-                  key={k}
-                  className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 min-w-[120px]"
-                >
-                  <div className="text-[11px] text-white/60 uppercase">
-                    {k}
+            {/* SPEC CHIPS — hidden for rotavators */}
+            {p.cat !== "Rotavator" && Object.keys(p.spec).length > 0 && (
+              <div className="flex flex-wrap gap-3 mb-6">
+                {Object.entries(p.spec).map(([k, v]) => (
+                  <div
+                    key={k}
+                    className="bg-white/10 border border-white/20 rounded-lg px-4 py-3 min-w-[120px]"
+                  >
+                    <div className="text-[11px] text-white/60 uppercase">
+                      {k}
+                    </div>
+                    <div className="text-[14px] font-semibold mt-1">{v}</div>
                   </div>
-                  <div className="text-[14px] font-semibold mt-1">{v}</div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
-            {/* BUTTONS */}
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
-                onClick={() => goPage("contact")}
-                className="bg-y1 text-soil px-6 py-3 rounded-lg font-semibold"
+                type="button"
+                onClick={() => openWhatsApp(productQuoteMessage(p))}
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-[#20bd5a] transition min-h-[48px] active:scale-[0.98] w-full sm:w-auto"
               >
-                Get Quote →
+                <span className="text-lg" aria-hidden>💬</span>
+                Get Quote on WhatsApp
               </button>
 
-              <button
-                onClick={() => goPage("contact")}
-                className="border border-white/40 px-6 py-3 rounded-lg"
+              <a
+                href="tel:07942819807"
+                className="inline-flex items-center justify-center border border-white/40 px-6 py-3.5 rounded-lg hover:bg-white/10 transition min-h-[48px] w-full sm:w-auto text-center"
               >
-                Contact Seller
-              </button>
+                Call 07942819807
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* DETAILS / TABS */}
-      <section className="px-6 md:px-12 py-14">
-        <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-sm border border-bd p-8">
-          {/* TAB BUTTONS - SLIDE LEFT RIGHT */}
+      <section className="px-4 sm:px-6 md:px-12 py-8 sm:py-14">
+        <div className="max-w-5xl mx-auto bg-white rounded-xl sm:rounded-2xl shadow-sm border border-bd p-4 sm:p-8">
           <div
             ref={tabsRef}
-            className="flex gap-4 overflow-x-auto no-scrollbar border-b border-bd pb-4 mb-8"
+            className="flex gap-2 sm:gap-4 overflow-x-auto no-scrollbar border-b border-bd pb-3 sm:pb-4 mb-6 sm:mb-8"
           >
             {TABS.map((tab) => (
               <button
@@ -140,7 +215,7 @@ export default function ProductDetailPage({
                   setActiveTab(tab.id);
                   scrollToTab(e.currentTarget);
                 }}
-                className={`flex-shrink-0 px-6 py-2 text-[14px] font-semibold rounded-full transition whitespace-nowrap
+                className={`flex-shrink-0 px-4 sm:px-6 py-2.5 text-[13px] sm:text-[14px] font-semibold rounded-full transition whitespace-nowrap min-h-[44px] active:scale-[0.98]
                   ${
                     activeTab === tab.id
                       ? "bg-g1 text-white"
@@ -161,6 +236,23 @@ export default function ProductDetailPage({
               <p className="text-[15px] text-[#444] leading-[1.9]">
                 {p.desc}
               </p>
+            </div>
+          )}
+
+          {activeTab === "video" && p.video && (
+            <div>
+              <h3 className="text-[22px] font-bold text-g2 mb-4">
+                Product Video
+              </h3>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                className="w-full max-w-3xl rounded-xl bg-black"
+                src={p.video}
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           )}
 
@@ -210,7 +302,7 @@ export default function ProductDetailPage({
               <h3 className="text-[22px] font-bold text-g2 mb-6">
                 Related Products
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
                 {related.map((r) => (
                   <ProductCard
                     key={r.id}

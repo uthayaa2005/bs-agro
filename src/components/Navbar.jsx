@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ENQUIRY_FORM_URL } from "../constants/links";
 
 const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -68,12 +69,14 @@ export default function Navbar({ currentPage, goPage }) {
           </ul>
 
           {/* CTA */}
-          <button
-            onClick={() => handleNav("contact")}
-            className="ml-3 bg-y1 text-soil px-5 py-2.5 rounded-lg text-[14px] font-semibold hover:scale-[1.05] transition-all duration-200"
+          <a
+            href={ENQUIRY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-3 bg-y1 text-soil px-5 py-2.5 rounded-lg text-[14px] font-semibold hover:scale-[1.05] transition-all duration-200 inline-flex items-center"
           >
             Get Quote
-          </button>
+          </a>
 
         </div>
 
@@ -123,12 +126,15 @@ export default function Navbar({ currentPage, goPage }) {
           </ul>
 
           {/* MOBILE CTA */}
-          <button
-            onClick={() => handleNav("contact")}
-            className="w-full mt-4 bg-y1 text-soil py-3 rounded-xl text-[14px] font-semibold hover:scale-[1.02] transition-all duration-200"
+          <a
+            href={ENQUIRY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="w-full mt-4 bg-y1 text-soil py-3 rounded-xl text-[14px] font-semibold hover:scale-[1.02] transition-all duration-200 text-center block min-h-[48px] flex items-center justify-center"
           >
             Get Quote
-          </button>
+          </a>
 
         </div>
 
