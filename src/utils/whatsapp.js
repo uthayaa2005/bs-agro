@@ -1,5 +1,6 @@
-/** BS Agro — WhatsApp (07942819807) */
-export const WHATSAPP_NUMBER = "917942819807";
+import { WHATSAPP_NUMBER } from "../constants/links";
+
+export { WHATSAPP_NUMBER };
 
 const DEFAULT_MESSAGE =
   "Hi BS Agro Equipments, I would like to get a quote. Please share details.";

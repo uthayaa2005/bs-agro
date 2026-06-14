@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { products } from "../data/data";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
-import { ENQUIRY_FORM_URL } from "../constants/links";
+import { ENQUIRY_FORM_URL, PHONE_NUMBER, PHONE_TEL } from "../constants/links";
 import { orderedCategories, categoryCounts } from "../utils/productCategories";
 import { productMatchesSearch } from "../utils/productSearch";
 import {
@@ -232,10 +232,10 @@ export default function ProductsPage({
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
             <a
-              href="tel:07942819807"
+              href={PHONE_TEL}
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3.5 rounded-2xl transition animate-glow min-h-[48px] flex items-center justify-center"
             >
-              📞 07942819807
+              📞 {PHONE_NUMBER}
             </a>
             <a
               href={ENQUIRY_FORM_URL}

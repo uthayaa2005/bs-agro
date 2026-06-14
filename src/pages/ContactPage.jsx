@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
+import { PHONE_NUMBER } from "../constants/links";
 
 const PRODUCTS_LIST = [
   "3 Feet 16 Blade Single Speed Rotavator",
@@ -116,7 +117,7 @@ export default function ContactPage() {
             {
               icon: "📞",
               title: "Call Us",
-              text: "07942819807\nQuick Response Support",
+              text: `${PHONE_NUMBER}\nQuick Response Support`,
             },
             {
               icon: "🏅",

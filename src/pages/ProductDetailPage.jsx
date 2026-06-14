@@ -3,6 +3,7 @@ import { products } from "../data/data";
 import ProductCard from "../components/ProductCard";
 import Footer from "../components/Footer";
 import { openWhatsApp, productQuoteMessage } from "../utils/whatsapp";
+import { PHONE_NUMBER, PHONE_TEL } from "../constants/links";
 
 export default function ProductDetailPage({
   productId,
@@ -191,10 +192,10 @@ export default function ProductDetailPage({
               </button>
 
               <a
-                href="tel:07942819807"
+                href={PHONE_TEL}
                 className="inline-flex items-center justify-center border border-white/40 px-6 py-3.5 rounded-lg hover:bg-white/10 transition min-h-[48px] w-full sm:w-auto text-center"
               >
-                Call 07942819807
+                Call {PHONE_NUMBER}
               </a>
             </div>
           </div>

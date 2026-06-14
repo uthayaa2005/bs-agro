@@ -3,6 +3,8 @@
 // Synced from https://www.bsagrorotavator.com/
 // =====================================================
 
+import { PHONE_NUMBER } from "../constants/links";
+
 export const products = [
   {
     "id": 1,
@@ -827,6 +829,6 @@ export const tickItems = [
   "⚙️ 250 RPM Gear Boxes · Heavy Duty · Salem Manufacturing",
   "🚚 Free Delivery on Select Models · Tamil Nadu",
   "🌾 2024 RD Series Now Available · Ridgers & Ploughs",
-  "📞 Call 07942819807 for Bulk Order Discounts",
+  `📞 Call ${PHONE_NUMBER} for Bulk Order Discounts`,
   "★ 4.4/5 Rated · 43 Verified Reviews · GST: 33FJKPS8217P1ZC",
 ];

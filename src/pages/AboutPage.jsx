@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
+import { PHONE_NUMBER } from "../constants/links";
 
 const ABOUT_CARDS = [
   {
@@ -20,7 +21,7 @@ const ABOUT_CARDS = [
   {
     icon: "📞",
     title: "Contact",
-    text: "07942819807 · SMS & Email support",
+    text: `${PHONE_NUMBER} · SMS & Email support`,
   },
   {
     icon: "🏭",

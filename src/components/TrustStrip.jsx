@@ -1,4 +1,5 @@
 import React from "react";
+import { PHONE_NUMBER, PHONE_TEL } from "../constants/links";
 
 export default function TrustStrip() {
   return (
@@ -11,10 +12,10 @@ export default function TrustStrip() {
         <span className="shrink-0 hidden xs:inline">✓ TN Delivery</span>
         <span className="text-y1/50 shrink-0 hidden xs:inline" aria-hidden>·</span>
         <a
-          href="tel:07942819807"
+          href={PHONE_TEL}
           className="shrink-0 font-semibold text-y1 hover:text-y2 transition"
         >
-          📞 07942819807
+          📞 {PHONE_NUMBER}
         </a>
       </div>
     </div>

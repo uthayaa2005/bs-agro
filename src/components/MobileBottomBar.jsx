@@ -1,10 +1,11 @@
 import React from "react";
 import { openWhatsApp } from "../utils/whatsapp";
+import { PHONE_TEL } from "../constants/links";
 
 const ITEMS = [
   { id: "home", label: "Home", icon: "🏠" },
   { id: "products", label: "Products", icon: "🚜" },
-  { id: "call", label: "Call", icon: "📞", href: "tel:07942819807" },
+  { id: "call", label: "Call", icon: "📞", href: PHONE_TEL },
   { id: "whatsapp", label: "Chat", icon: "💬" },
 ];
 

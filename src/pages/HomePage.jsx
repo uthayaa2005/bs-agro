@@ -5,7 +5,7 @@ import SectionHeader from "../components/SectionHeader";
 import CategoryIcon from "../components/CategoryIcon";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
-import { ENQUIRY_FORM_URL } from "../constants/links";
+import { ENQUIRY_FORM_URL, PHONE_TEL } from "../constants/links";
 
 const ENQUIRY_LINK = ENQUIRY_FORM_URL;
 
@@ -347,7 +347,7 @@ export default function HomePage({
 
           {/* CALL BUTTON */}
           <a
-            href="tel:07942819807"
+            href={PHONE_TEL}
             className="bg-y1 text-soil px-8 py-4 rounded-2xl font-semibold text-[16px] hover:scale-105 transition-all duration-300"
           >
             📞 Contact Us
@@ -478,7 +478,7 @@ export default function HomePage({
 
           {/* DIRECT CALL */}
           <a
-            href="tel:07942819807"
+            href={PHONE_TEL}
             className="bg-soil text-y1 px-5 py-3 rounded-lg text-[13px] font-semibold"
           >
             📞 Call Us
