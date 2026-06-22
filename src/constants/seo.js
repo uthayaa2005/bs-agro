@@ -1,44 +1,47 @@
 import {
   BUSINESS_ADDRESS,
+  BRAND_NAMES,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
   SITE_SHORT_NAME,
   SITE_TAGLINE,
+  SITE_URL,
 } from "./site";
 
 const LOCATION = `${BUSINESS_ADDRESS.street}, ${BUSINESS_ADDRESS.district}`;
 const LOCATION_SHORT = `Salem district, Tamil Nadu`;
+const BRAND = "BS Agro";
 
-/** Per-page and per-category SEO copy */
+/** Per-page SEO — brand name first for Google searches like "bs agro" */
 export const SEO_PAGES = {
   home: {
-    title: `${SITE_NAME} | Best Rotavator Company in Salem, Tamil Nadu`,
-    description: `${SITE_NAME} — best rotavator manufacturer in Salem district. ISO certified factory at ${LOCATION}. Rotavators, cultivators & agri equipment. Factory-direct price.`,
-    keywords: `${SITE_KEYWORDS}, rotavator Salem Attur, best rotavator Salem Tamil Nadu`,
+    title: `BS Agro Equipments | BS Agro — Official Website | Rotavator Salem`,
+    description: `BS Agro Equipments (BS Agro) — official website. Best rotavator manufacturer in Salem district, Sitheri Attur. Rotavators, cultivators & agri equipment. Call 7603809596.`,
+    keywords: `BS Agro, bs agro, BS Agro Equipments, bs agro equipments, ${SITE_KEYWORDS}`,
   },
   products: {
-    title: `Agricultural Products | ${SITE_NAME} Salem`,
-    description: `Browse rotavators, cultivators, ridgers & tillers from ${SITE_SHORT_NAME} — best rotavator company in Salem district. ${LOCATION}. Direct manufacturer prices.`,
-    keywords: `BS Agro products, rotavator catalog Salem, agricultural equipment ${BUSINESS_ADDRESS.district}, cultivator Attur`,
+    title: `BS Agro Products | BS Agro Equipments — Rotavators Salem`,
+    description: `BS Agro Equipments product catalog — rotavators, cultivators, ridgers & tillers. Official BS Agro manufacturer in ${LOCATION}, ${LOCATION_SHORT}. Factory-direct prices.`,
+    keywords: `BS Agro products, bs agro equipments products, BS Agro rotavator, rotavator catalog Salem, ${SITE_KEYWORDS}`,
   },
   about: {
-    title: `About ${SITE_NAME} | Best Rotavator Manufacturer Salem`,
-    description: `About ${SITE_NAME} — ISO certified rotavator & agricultural machinery manufacturer in ${LOCATION}, ${LOCATION_SHORT}. Trusted by farmers across Tamil Nadu.`,
-    keywords: `about BS Agro, rotavator factory Salem, agricultural manufacturer Attur, ISO certified rotavator Salem`,
+    title: `About BS Agro | BS Agro Equipments — Salem Manufacturer`,
+    description: `About BS Agro Equipments (BS Agro) — ISO certified rotavator & agricultural machinery manufacturer in ${LOCATION}, ${LOCATION_SHORT}. Official company profile.`,
+    keywords: `about BS Agro, about bs agro equipments, BS Agro company, rotavator factory Salem, ${SITE_KEYWORDS}`,
   },
   reviews: {
-    title: `Customer Reviews | ${SITE_NAME} Salem`,
-    description: `Read reviews for ${SITE_NAME} — best rotavator company in Salem district. Farmers & dealers trust our rotavators, cultivators & service from ${BUSINESS_ADDRESS.street}, Attur.`,
-    keywords: `BS Agro reviews, rotavator reviews Salem, customer feedback BS Agro Equipments`,
+    title: `BS Agro Reviews | BS Agro Equipments Customer Ratings`,
+    description: `BS Agro Equipments reviews — farmers & dealers rate BS Agro rotavators. Trusted rotavator company in Salem district, ${BUSINESS_ADDRESS.street}, Attur.`,
+    keywords: `BS Agro reviews, bs agro equipments reviews, BS Agro ratings, rotavator reviews Salem, ${SITE_KEYWORDS}`,
   },
   contact: {
-    title: `Contact ${SITE_NAME} | ${BUSINESS_ADDRESS.district}, Tamil Nadu`,
-    description: `Contact ${SITE_NAME} at ${BUSINESS_ADDRESS.full}. Best rotavator company in Salem district. Call/WhatsApp for quotes, dealer enquiries & support.`,
-    keywords: `contact BS Agro, rotavator enquiry Salem, BS Agro address Sitheri Attur, rotavator dealer Salem district`,
+    title: `Contact BS Agro | BS Agro Equipments — Salem Tamil Nadu`,
+    description: `Contact BS Agro Equipments (BS Agro) — ${BUSINESS_ADDRESS.full}. Phone/WhatsApp 7603809596. Official rotavator manufacturer enquiry & dealer support.`,
+    keywords: `contact BS Agro, contact bs agro equipments, BS Agro phone number, BS Agro address Salem, ${SITE_KEYWORDS}`,
   },
   "product-detail": {
-    title: `${SITE_NAME} Salem`,
+    title: `BS Agro Equipments | BS Agro Salem`,
     description: SITE_DESCRIPTION,
     keywords: SITE_KEYWORDS,
   },
@@ -46,39 +49,39 @@ export const SEO_PAGES = {
 
 export const SEO_CATEGORIES = {
   Rotavator: {
-    title: `Rotavators in Salem | ${SITE_NAME}`,
-    description: `Buy rotavators from ${SITE_NAME} — best rotavator manufacturer in Salem district. ${LOCATION}, ${LOCATION_SHORT}. ISO certified, factory-direct pricing.`,
-    keywords: `rotavator Salem, best rotavator company Salem, BS Agro rotavator, rotavator price Attur, rotavator manufacturer Tamil Nadu`,
+    title: `BS Agro Rotavators | BS Agro Equipments Salem`,
+    description: `BS Agro rotavators — buy from BS Agro Equipments, best rotavator manufacturer in Salem district. ${LOCATION}, ${LOCATION_SHORT}. ISO certified factory-direct price.`,
+    keywords: `BS Agro rotavator, bs agro rotavator, rotavator Salem, BS Agro Equipments rotavator, ${SITE_KEYWORDS}`,
   },
   Cultivator: {
-    title: `Cultivators in Salem | ${SITE_NAME}`,
-    description: `Cultivators from ${SITE_NAME}, best agricultural equipment company in Salem district. ${LOCATION}. Spring cultivator, duck feet & more at factory price.`,
-    keywords: `cultivator Salem, BS Agro cultivator, agricultural cultivator Salem district, cultivator Attur`,
+    title: `BS Agro Cultivators | BS Agro Equipments Salem`,
+    description: `BS Agro cultivators from BS Agro Equipments — agricultural equipment manufacturer in Salem district. ${LOCATION}. Factory price.`,
+    keywords: `BS Agro cultivator, bs agro cultivator, cultivator Salem, ${SITE_KEYWORDS}`,
   },
   Tiller: {
-    title: `Tillers in Salem | ${SITE_NAME}`,
-    description: `Tiller rotavators from ${SITE_NAME} — trusted manufacturer in Salem district, ${BUSINESS_ADDRESS.street}, Attur. Reverse forward tiller & multi-speed models.`,
-    keywords: `tiller rotavator Salem, BS Agro tiller, tiller manufacturer Salem district`,
+    title: `BS Agro Tillers | BS Agro Equipments Salem`,
+    description: `BS Agro tiller rotavators from official manufacturer BS Agro Equipments, ${BUSINESS_ADDRESS.street}, Attur, Salem district.`,
+    keywords: `BS Agro tiller, bs agro tiller, tiller rotavator Salem, ${SITE_KEYWORDS}`,
   },
   "Side Disk": {
-    title: `Side Disks in Salem | ${SITE_NAME}`,
-    description: `Rotavator side disks from ${SITE_NAME}, Salem district. ${LOCATION}. Quality spare parts & accessories from the best rotavator company in Salem.`,
-    keywords: `rotavator side disk Salem, BS Agro side disk, agricultural spare parts Attur`,
+    title: `BS Agro Side Disks | BS Agro Equipments Salem`,
+    description: `Rotavator side disks from BS Agro Equipments (BS Agro) — ${LOCATION}, Salem district. Genuine spare parts at factory price.`,
+    keywords: `BS Agro side disk, rotavator side disk Salem, ${SITE_KEYWORDS}`,
   },
   Ridger: {
-    title: `Ridgers in Salem | ${SITE_NAME}`,
-    description: `Agricultural ridgers from ${SITE_NAME} — best rotavator & equipment company in Salem district. ${LOCATION}, Tamil Nadu. Factory-direct ridger prices.`,
-    keywords: `ridger Salem, agricultural ridger Salem district, BS Agro ridger Attur`,
+    title: `BS Agro Ridgers | BS Agro Equipments Salem`,
+    description: `Agricultural ridgers from BS Agro Equipments — official BS Agro manufacturer in Salem district, Tamil Nadu.`,
+    keywords: `BS Agro ridger, bs agro ridger, ridger Salem, ${SITE_KEYWORDS}`,
   },
   Accessories: {
-    title: `Rotavator Accessories | ${SITE_NAME} Salem`,
-    description: `Rotavator blades, PTO shafts, bolts & accessories from ${SITE_NAME}. Best rotavator company in Salem district — ${LOCATION}. Genuine parts at factory price.`,
-    keywords: `rotavator blade Salem, PTO shaft BS Agro, rotavator accessories Attur, spare parts Salem district`,
+    title: `BS Agro Accessories | BS Agro Equipments Salem`,
+    description: `BS Agro rotavator blades, PTO shafts & accessories from BS Agro Equipments. Official parts from Salem district manufacturer.`,
+    keywords: `BS Agro accessories, rotavator blade BS Agro, PTO shaft BS Agro, ${SITE_KEYWORDS}`,
   },
   "New Items": {
-    title: `New Agricultural Equipment | ${SITE_NAME} Salem`,
-    description: `New rotavators & agricultural equipment from ${SITE_NAME}, best manufacturer in Salem district. ${LOCATION}, ${LOCATION_SHORT}. Latest models at direct price.`,
-    keywords: `new rotavator Salem, new agricultural equipment BS Agro, latest rotavator Salem district`,
+    title: `BS Agro New Products | BS Agro Equipments Salem`,
+    description: `New rotavators & equipment from BS Agro Equipments (BS Agro) — latest models from Salem district manufacturer at direct price.`,
+    keywords: `BS Agro new products, new rotavator BS Agro, ${SITE_KEYWORDS}`,
   },
 };
 
@@ -86,9 +89,34 @@ export function productSeo(product) {
   const name = product.name;
   const cat = product.cat;
   return {
-    title: `${name} | ${SITE_NAME} Salem`,
-    description:
-      `${name} from ${SITE_NAME} — best rotavator company in Salem district. ${BUSINESS_ADDRESS.street}, Attur, Tamil Nadu. ${product.price}. Enquire for factory quote.`,
-    keywords: `${name}, ${cat} Salem, BS Agro ${cat}, rotavator ${BUSINESS_ADDRESS.district}, ${SITE_SHORT_NAME} ${BUSINESS_ADDRESS.city}`,
+    title: `${name} | BS Agro Equipments | BS Agro Salem`,
+    description: `${name} from BS Agro Equipments (BS Agro) — official rotavator manufacturer in Salem district. ${BUSINESS_ADDRESS.street}, Attur. ${product.price}. Enquire now.`,
+    keywords: `${name}, BS Agro ${cat}, bs agro ${cat}, BS Agro Equipments, ${SITE_KEYWORDS}`,
   };
 }
+
+/** FAQ schema — targets "bs agro" / "bs agro equipments" searches */
+export const BRAND_FAQ = [
+  {
+    question: "What is BS Agro Equipments?",
+    answer: `BS Agro Equipments (also known as BS Agro or B S Agro Equipments) is an ISO certified rotavator and agricultural equipment manufacturer located in Sitheri, Attur, Salem District, Tamil Nadu. Official website: ${SITE_URL}`,
+  },
+  {
+    question: "Where is BS Agro located?",
+    answer: `BS Agro Equipments is at ${BUSINESS_ADDRESS.full}. Salem District, Tamil Nadu, India.`,
+  },
+  {
+    question: "How to contact BS Agro Equipments?",
+    answer: "Contact BS Agro Equipments by phone or WhatsApp at +91 7603809596. Visit the official website bsagroequipments.com for product catalog and enquiry form.",
+  },
+  {
+    question: "What does BS Agro manufacture?",
+    answer: "BS Agro Equipments manufactures rotavators, cultivators, ridgers, tillers, ploughs, and agricultural equipment spare parts. BS Agro is a direct manufacturer in Salem with pan-Tamil Nadu delivery.",
+  },
+  {
+    question: "Is BS Agro the same as BS Agro Equipments?",
+    answer: "Yes. BS Agro is the short name for BS Agro Equipments (B S Agro Equipments), the rotavator manufacturer in Salem, Tamil Nadu. The official website is bsagroequipments.com.",
+  },
+];
+
+export { BRAND_NAMES, BRAND };

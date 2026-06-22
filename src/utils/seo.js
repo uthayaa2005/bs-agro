@@ -1,5 +1,6 @@
 import {
   BUSINESS_ADDRESS,
+  BRAND_NAMES,
   GST_NUMBER,
   GOOGLE_MAPS_URL,
   PHONE_E164,
@@ -12,7 +13,7 @@ import {
   SITE_URL,
   siteUrl,
 } from "../constants/site";
-import { SEO_CATEGORIES, SEO_PAGES, productSeo } from "../constants/seo";
+import { BRAND_FAQ, SEO_CATEGORIES, SEO_PAGES, productSeo } from "../constants/seo";
 import { pathFor } from "./historyNav";
 
 function setMeta(attr, value, attrName = "name") {
@@ -58,10 +59,20 @@ export function applyPageSeo({ page, product, filter }) {
   document.title = seo.title;
   setMeta("description", seo.description);
   setMeta("keywords", seo.keywords);
+  setMeta("author", SITE_NAME);
+  setMeta("application-name", SITE_NAME);
+  setMeta("subject", "BS Agro Equipments — Rotavator Manufacturer Salem");
+  setMeta("classification", "Agricultural Equipment Manufacturer");
+  setMeta("coverage", "Worldwide");
+  setMeta("distribution", "Global");
+  setMeta("rating", "General");
+  setMeta("referrer", "origin-when-cross-origin");
   setMeta("geo.region", "IN-TN");
   setMeta("geo.placename", `${BUSINESS_ADDRESS.city}, ${BUSINESS_ADDRESS.district}`);
   setMeta("geo.position", "11.5384857;78.813587");
   setMeta("ICBM", "11.5384857, 78.813587");
+  setMeta("robots", "index, follow, max-image-preview:large");
+  setMeta("googlebot", "index, follow");
 
   setMeta("og:title", seo.title, "property");
   setMeta("og:description", seo.description, "property");
@@ -75,8 +86,24 @@ export function applyPageSeo({ page, product, filter }) {
   setMeta("twitter:title", seo.title);
   setMeta("twitter:description", seo.description);
   setMeta("twitter:image", image);
+  setMeta("twitter:site", "@bsagrosundaram");
 
   setCanonical(canonical);
+}
+
+function faqSchema() {
+  return {
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/#faq`,
+    mainEntity: BRAND_FAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }
 
 export function buildStructuredData({ page, product } = {}) {
@@ -86,23 +113,35 @@ export function buildStructuredData({ page, product } = {}) {
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
       name: SITE_NAME,
-      alternateName: SITE_SHORT_NAME,
+      alternateName: BRAND_NAMES,
       description: SITE_DESCRIPTION,
       inLanguage: "en-IN",
       publisher: { "@id": `${SITE_URL}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/products?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
     },
     {
       "@type": ["Organization", "LocalBusiness", "Store"],
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      alternateName: ["BS Agro", "BS Agro Rotavators"],
-      description: `${SITE_NAME} — ${SITE_TAGLINE}. ISO certified rotavator & agricultural equipment manufacturer in ${BUSINESS_ADDRESS.district}, ${BUSINESS_ADDRESS.region}.`,
+      alternateName: BRAND_NAMES,
+      description: `${SITE_NAME} (BS Agro) — ${SITE_TAGLINE}. Official rotavator & agricultural equipment manufacturer in ${BUSINESS_ADDRESS.district}, ${BUSINESS_ADDRESS.region}.`,
       url: SITE_URL,
       image: SITE_OG_IMAGE,
       logo: SITE_OG_IMAGE,
       telephone: PHONE_E164,
       email: "info@bsagroequipments.com",
       taxID: GST_NUMBER,
+      foundingLocation: {
+        "@type": "Place",
+        name: "Salem, Tamil Nadu",
+      },
       address: {
         "@type": "PostalAddress",
         streetAddress: BUSINESS_ADDRESS.street,
@@ -131,8 +170,19 @@ export function buildStructuredData({ page, product } = {}) {
       ],
       priceRange: "₹₹",
       keywords: SITE_KEYWORDS,
+      knowsAbout: [
+        "Rotavator",
+        "Agricultural Equipment",
+        "Cultivator",
+        "Ridger",
+        "Farm Machinery",
+      ],
     },
   ];
+
+  if (page === "home" || !page) {
+    graph.push(faqSchema());
+  }
 
   if (page === "product-detail" && product) {
     graph.push({
@@ -145,6 +195,7 @@ export function buildStructuredData({ page, product } = {}) {
       brand: {
         "@type": "Brand",
         name: SITE_NAME,
+        alternateName: BRAND_NAMES,
       },
       offers: {
         "@type": "Offer",

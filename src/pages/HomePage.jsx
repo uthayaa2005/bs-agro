@@ -159,14 +159,15 @@ export default function HomePage({
 
     {/* TITLE */}
     <h1 className="font-playfair text-[28px] sm:text-[38px] md:text-[48px] lg:text-[56px] font-black text-white leading-[1.2] mb-4">
-      Premium <span className="text-y1">Agro Equipment</span>
+      <span className="text-y1">BS Agro Equipments</span>
       <br />
-      for Modern Farming
+      Premium Rotavators &amp; Agro Equipment
     </h1>
 
     {/* DESCRIPTION */}
     <p className="text-white/70 text-[13px] sm:text-[14px] md:text-[16px] leading-[1.8] mb-6 max-w-[550px]">
-      Rotavators, reversible ploughs, ridgers, gear boxes and
+      BS Agro (B S Agro Equipments) — official rotavator manufacturer in Salem,
+      Tamil Nadu. Rotavators, reversible ploughs, ridgers, gear boxes and
       accessories engineered for Indian farming.
     </p>
 
