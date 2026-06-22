@@ -12,7 +12,7 @@ import TrustStrip from "./components/TrustStrip";
 import MobileBottomBar from "./components/MobileBottomBar";
 import StructuredData from "./components/StructuredData";
 import { products } from "./data/data";
-import { parseHash, hashFor } from "./utils/historyNav";
+import { migrateHashToPath, parsePath, pathFor } from "./utils/historyNav";
 import { applyPageSeo } from "./utils/seo";
 
 export default function App() {
@@ -38,12 +38,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const initial = parseHash();
+    const fromHash = migrateHashToPath();
+    const initial = fromHash || parsePath();
     applyRoute(initial);
-    window.history.replaceState(initial, "", hashFor(initial));
+    window.history.replaceState(initial, "", pathFor(initial));
 
     const onPopState = (event) => {
-      const route = event.state || parseHash();
+      const route = event.state || parsePath();
       applyRoute(route);
     };
 
@@ -81,7 +82,7 @@ export default function App() {
     };
 
     applyRoute(route);
-    window.history.pushState(route, "", hashFor(route));
+    window.history.pushState(route, "", pathFor(route));
   };
 
   const goPage = (page) => {
@@ -97,7 +98,7 @@ export default function App() {
     const route = { page: "products", productId: null, filter: cat };
     setActiveFilter(cat);
     routeRef.current = route;
-    window.history.replaceState(route, "", hashFor(route));
+    window.history.replaceState(route, "", pathFor(route));
   }, []);
 
   const openProduct = (id) => {

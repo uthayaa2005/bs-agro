@@ -1,9 +1,6 @@
-/** Hash-based routes so mobile/browser Back returns to the previous page. */
+/** Path-based routes for clean URLs (better SEO than #/hash routes). */
 
-export function parseHash() {
-  const raw = window.location.hash.slice(1).replace(/^\//, "");
-  const parts = raw.split("/").filter(Boolean);
-
+function parseRouteFromParts(parts) {
   if (parts.length === 0) {
     return { page: "home", productId: null, filter: "All" };
   }
@@ -33,23 +30,40 @@ export function parseHash() {
   return { page: "home", productId: null, filter: "All" };
 }
 
-export function hashFor({ page, productId, filter }) {
+export function parsePath() {
+  const raw = window.location.pathname.replace(/^\//, "");
+  return parseRouteFromParts(raw.split("/").filter(Boolean));
+}
+
+export function pathFor({ page, productId, filter }) {
   switch (page) {
     case "home":
-      return "#/";
+      return "/";
     case "products":
       return filter && filter !== "All"
-        ? `#/products/${encodeURIComponent(filter)}`
-        : "#/products";
+        ? `/products/${encodeURIComponent(filter)}`
+        : "/products";
     case "product-detail":
-      return productId ? `#/product/${productId}` : "#/products";
+      return productId ? `/product/${productId}` : "/products";
     case "about":
-      return "#/about";
+      return "/about";
     case "reviews":
-      return "#/reviews";
+      return "/reviews";
     case "contact":
-      return "#/contact";
+      return "/contact";
     default:
-      return "#/";
+      return "/";
   }
+}
+
+/** Redirect old #/ links (bookmarks) to clean paths. Returns route if migrated. */
+export function migrateHashToPath() {
+  const hash = window.location.hash;
+  if (!hash || hash === "#" || hash === "#/") return null;
+
+  const raw = hash.slice(1).replace(/^\//, "");
+  const route = parseRouteFromParts(raw.split("/").filter(Boolean));
+  const path = pathFor(route);
+  window.history.replaceState(route, "", path);
+  return route;
 }

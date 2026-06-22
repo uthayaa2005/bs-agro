@@ -32,10 +32,10 @@ export const GST_NUMBER = "33FJKPS8217P1ZC";
 export const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/place/BS+AGRO+ROTAVATORS/@11.5384857,78.813587,17z/data=!3m1!4b1!4m6!3m5!1s0x3bab7311d046f447:0x410edf7e86ac09d2!8m2!3d11.5384857!4d78.813587!16s%2Fg%2F11r8fkfnzb";
 
-/** Full URL for a hash route (e.g. "#/products" → https://bsagroequipments.com/#/products) */
-export function siteUrl(hash = "") {
+/** Full URL for a path (e.g. "/products" → https://bsagroequipments.com/products) */
+export function siteUrl(path = "") {
   const base = SITE_URL.replace(/\/$/, "");
-  if (!hash || hash === "#/" || hash === "#") return `${base}/`;
-  const fragment = hash.startsWith("#") ? hash : `#/${hash.replace(/^\//, "")}`;
-  return `${base}/${fragment}`;
+  if (!path || path === "/") return `${base}/`;
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${clean}`;
 }

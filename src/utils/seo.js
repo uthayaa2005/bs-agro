@@ -13,7 +13,7 @@ import {
   siteUrl,
 } from "../constants/site";
 import { SEO_CATEGORIES, SEO_PAGES, productSeo } from "../constants/seo";
-import { hashFor } from "./historyNav";
+import { pathFor } from "./historyNav";
 
 function setMeta(attr, value, attrName = "name") {
   if (!value) return;
@@ -49,7 +49,7 @@ function resolveSeo({ page, product, filter }) {
 export function applyPageSeo({ page, product, filter }) {
   const seo = resolveSeo({ page, product, filter });
   const route = { page, productId: product?.id ?? null, filter: filter || "All" };
-  const canonical = siteUrl(hashFor(route));
+  const canonical = siteUrl(pathFor(route));
   const image =
     page === "product-detail" && product?.img?.startsWith("http")
       ? product.img
@@ -137,7 +137,7 @@ export function buildStructuredData({ page, product } = {}) {
   if (page === "product-detail" && product) {
     graph.push({
       "@type": "Product",
-      "@id": `${SITE_URL}/#/product/${product.id}#product`,
+      "@id": `${SITE_URL}/product/${product.id}#product`,
       name: product.name,
       description: product.desc,
       image: product.img,
@@ -151,7 +151,7 @@ export function buildStructuredData({ page, product } = {}) {
         priceCurrency: "INR",
         availability: "https://schema.org/InStock",
         seller: { "@id": `${SITE_URL}/#organization` },
-        url: siteUrl(`#/product/${product.id}`),
+        url: siteUrl(`/product/${product.id}`),
       },
       manufacturer: { "@id": `${SITE_URL}/#organization` },
     });

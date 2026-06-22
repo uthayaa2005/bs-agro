@@ -25,16 +25,16 @@ const productIds = [...data.matchAll(/"id":\s*(\d+)/g)].map((m) => m[1]);
 
 const staticRoutes = [
   "/",
-  "/#/products",
-  "/#/about",
-  "/#/reviews",
-  "/#/contact",
+  "/products",
+  "/about",
+  "/reviews",
+  "/contact",
 ];
 
 const categoryRoutes = CATEGORIES.map(
-  (cat) => `/#/products/${encodeURIComponent(cat)}`
+  (cat) => `/products/${encodeURIComponent(cat)}`
 );
-const productRoutes = productIds.map((id) => `/#/product/${id}`);
+const productRoutes = productIds.map((id) => `/product/${id}`);
 const urls = [...staticRoutes, ...categoryRoutes, ...productRoutes];
 const today = new Date().toISOString().slice(0, 10);
 
