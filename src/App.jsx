@@ -10,7 +10,10 @@ import ContactPage from "./pages/ContactPage";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import TrustStrip from "./components/TrustStrip";
 import MobileBottomBar from "./components/MobileBottomBar";
+import StructuredData from "./components/StructuredData";
+import { products } from "./data/data";
 import { parseHash, hashFor } from "./utils/historyNav";
+import { applyPageSeo } from "./utils/seo";
 
 export default function App() {
   const [currentPage, setCurrentPage] = React.useState("home");
@@ -47,6 +50,18 @@ export default function App() {
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, [applyRoute]);
+
+  useEffect(() => {
+    const product =
+      currentPage === "product-detail" && selectedProduct
+        ? products.find((p) => p.id === selectedProduct)
+        : null;
+    applyPageSeo({
+      page: currentPage,
+      product,
+      filter: activeFilter,
+    });
+  }, [currentPage, selectedProduct, activeFilter]);
 
   const navigate = (page, options = {}) => {
     const route = {
@@ -99,6 +114,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-cr font-dm text-tx overflow-x-hidden">
+      <StructuredData />
       <Navbar currentPage={currentPage} goPage={goPage} />
       <TrustStrip />
       <Ticker />

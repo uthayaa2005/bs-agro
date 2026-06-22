@@ -2,6 +2,7 @@
   "name": "bs-agro",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://bsagroequipments.com",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -13,6 +14,7 @@
     "postcss": "^8.4.0"
   },
   "scripts": {
+    "prebuild": "node scripts/generate-sitemap.js",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },

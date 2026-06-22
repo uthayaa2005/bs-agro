@@ -5,12 +5,10 @@ import SectionHeader from "../components/SectionHeader";
 import CategoryIcon from "../components/CategoryIcon";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
-import { ENQUIRY_FORM_URL, PHONE_TEL } from "../constants/links";
+import { ENQUIRY_FORM_URL, GOOGLE_MAPS_URL, PHONE_TEL } from "../constants/links";
 
 const ENQUIRY_LINK = ENQUIRY_FORM_URL;
-
-const LOCATION_LINK =
-  "https://www.google.com/maps/place/BS+AGRO+ROTAVATORS/@11.5384857,78.813587,17z/data=!3m1!4b1!4m6!3m5!1s0x3bab7311d046f447:0x410edf7e86ac09d2!8m2!3d11.5384857!4d78.813587!16s%2Fg%2F11r8fkfnzb?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D";
+const LOCATION_LINK = GOOGLE_MAPS_URL;
 
 const CATEGORY_META = [
   { cat: "Rotavator", label: "Rotavators" },

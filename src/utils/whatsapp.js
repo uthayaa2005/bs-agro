@@ -3,7 +3,7 @@ import { WHATSAPP_NUMBER } from "../constants/links";
 export { WHATSAPP_NUMBER };
 
 const DEFAULT_MESSAGE =
-  "Hi BS Agro Equipments, I would like to get a quote. Please share details.";
+  "Hi BS Agro Equipments, I would like to get a quote from bsagroequipments.com. Please share details.";
 
 export function buildWhatsAppUrl(message = DEFAULT_MESSAGE) {
   const text = encodeURIComponent(message.trim());

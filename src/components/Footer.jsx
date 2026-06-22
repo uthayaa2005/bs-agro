@@ -1,4 +1,5 @@
 import React from "react";
+import { SITE_URL } from "../constants/site";
 
 export default function Footer() {
   return (
@@ -15,6 +16,14 @@ export default function Footer() {
           </span>
 
           <span className="hidden sm:inline">
+            {" "}·{" "}
+            <a
+              href={SITE_URL}
+              className="hover:text-y1 transition-colors"
+              rel="home"
+            >
+              bsagroequipments.com
+            </a>
             {" "}· Salem, Tamil Nadu · GST: 33FJKPS8217P1ZC
           </span>
 
@@ -22,6 +31,10 @@ export default function Footer() {
 
         {/* MOBILE ONLY */}
         <div className="sm:hidden mt-1 text-[10px] text-white/40 leading-[1.6]">
+          <a href={SITE_URL} className="hover:text-y1 transition-colors">
+            bsagroequipments.com
+          </a>
+          <br />
           Salem, Tamil Nadu <br />
           GST: 33FJKPS8217P1ZC
         </div>

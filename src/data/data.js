@@ -1,6 +1,6 @@
 // =====================================================
 // PRODUCT DATA — BS Agro Equipments
-// Synced from https://www.bsagrorotavator.com/
+// Product catalogue — https://bsagroequipments.com
 // =====================================================
 
 import { PHONE_NUMBER } from "../constants/links";
