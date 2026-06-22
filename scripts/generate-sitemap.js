@@ -5,7 +5,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const SITE_URL = "https://bsagroequipments.com";
+const SITE_URL = "https://www.bsagroequipments.com";
 const ROOT = path.join(__dirname, "..");
 const dataPath = path.join(ROOT, "src", "data", "data.js");
 const outPath = path.join(ROOT, "public", "sitemap.xml");

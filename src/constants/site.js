@@ -1,5 +1,5 @@
 /** Canonical site URL — used for SEO, sitemap, and share links */
-export const SITE_URL = "https://bsagroequipments.com";
+export const SITE_URL = "https://www.bsagroequipments.com";
 
 export const SITE_NAME = "BS Agro Equipments";
 export const SITE_SHORT_NAME = "BS Agro";

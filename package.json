@@ -2,7 +2,7 @@
   "name": "bs-agro",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://bsagroequipments.com",
+  "homepage": "https://www.bsagroequipments.com",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
