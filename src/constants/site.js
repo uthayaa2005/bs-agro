@@ -2,19 +2,30 @@
 export const SITE_URL = "https://bsagroequipments.com";
 
 export const SITE_NAME = "BS Agro Equipments";
-export const SITE_TAGLINE = "Rotavator Manufacturer, Salem";
-export const SITE_DESCRIPTION =
-  "BS Agro Equipments — ISO certified rotavator, cultivator, ridger & agricultural equipment manufacturer in Salem, Tamil Nadu. Factory-direct pricing, pan-TN delivery.";
-
-export const SITE_OG_IMAGE = `${SITE_URL}/logo.png`;
+export const SITE_SHORT_NAME = "BS Agro";
+export const SITE_TAGLINE = "Best Rotavator Company in Salem";
 
 export const BUSINESS_ADDRESS = {
+  line1: "B S Agro Equipments",
   street: "Sitheri, Attur",
+  district: "Salem District",
   city: "Salem",
   region: "Tamil Nadu",
   postalCode: "636101",
   country: "IN",
+  full: "B S Agro Equipments, Sitheri, Attur, Salem District, Tamil Nadu - 636101",
 };
+
+export const SITE_DESCRIPTION =
+  "BS Agro Equipments — best rotavator company in Salem district. ISO certified manufacturer at Sitheri, Attur. Rotavators, cultivators, ridgers & agricultural equipment. Factory-direct pricing.";
+
+export const SITE_KEYWORDS =
+  "best rotavator company Salem, BS Agro Equipments, rotavator manufacturer Salem district, agricultural equipment Attur, rotavator price Tamil Nadu, cultivator Salem, BS Agro Sitheri";
+
+export const SITE_OG_IMAGE = `${SITE_URL}/logo.png`;
+
+export const PHONE_DISPLAY = "+91 76038 09596";
+export const PHONE_E164 = "+917603809596";
 
 export const GST_NUMBER = "33FJKPS8217P1ZC";
 

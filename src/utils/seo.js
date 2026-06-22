@@ -1,10 +1,18 @@
 import {
-  SITE_NAME,
+  BUSINESS_ADDRESS,
+  GST_NUMBER,
+  GOOGLE_MAPS_URL,
+  PHONE_E164,
   SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
   SITE_OG_IMAGE,
+  SITE_SHORT_NAME,
+  SITE_TAGLINE,
   SITE_URL,
   siteUrl,
 } from "../constants/site";
+import { SEO_CATEGORIES, SEO_PAGES, productSeo } from "../constants/seo";
 import { hashFor } from "./historyNav";
 
 function setMeta(attr, value, attrName = "name") {
@@ -28,95 +36,134 @@ function setCanonical(href) {
   el.setAttribute("href", href);
 }
 
-const PAGE_DEFAULTS = {
-  home: {
-    title: `${SITE_NAME} – Rotavator Manufacturer, Salem`,
-    description: SITE_DESCRIPTION,
-  },
-  products: {
-    title: `Products – ${SITE_NAME}`,
-    description:
-      "Browse rotavators, cultivators, ridgers, tillers and agricultural equipment from BS Agro Equipments, Salem. Factory-direct manufacturer prices.",
-  },
-  "product-detail": {
-    title: `${SITE_NAME}`,
-    description: SITE_DESCRIPTION,
-  },
-  about: {
-    title: `About Us – ${SITE_NAME}`,
-    description:
-      "Learn about BS Agro Equipments — ISO certified agricultural machinery manufacturer in Salem, Tamil Nadu since factory-direct production.",
-  },
-  reviews: {
-    title: `Customer Reviews – ${SITE_NAME}`,
-    description:
-      "Read customer reviews for BS Agro rotavators and agricultural equipment. Trusted manufacturer in Salem, Tamil Nadu.",
-  },
-  contact: {
-    title: `Contact – ${SITE_NAME}`,
-    description:
-      "Contact BS Agro Equipments in Salem for rotavator quotes, dealer enquiries and agricultural equipment support. Call or WhatsApp today.",
-  },
-};
+function resolveSeo({ page, product, filter }) {
+  if (page === "product-detail" && product) {
+    return productSeo(product);
+  }
+  if (page === "products" && filter && filter !== "All" && SEO_CATEGORIES[filter]) {
+    return SEO_CATEGORIES[filter];
+  }
+  return SEO_PAGES[page] || SEO_PAGES.home;
+}
 
 export function applyPageSeo({ page, product, filter }) {
-  const defaults = PAGE_DEFAULTS[page] || PAGE_DEFAULTS.home;
-  let title = defaults.title;
-  let description = defaults.description;
-  let image = SITE_OG_IMAGE;
-
-  if (page === "product-detail" && product) {
-    title = `${product.name} – ${SITE_NAME}`;
-    description =
-      product.desc?.slice(0, 155) ||
-      `${product.name} from ${SITE_NAME}, Salem. ${product.price}. Enquire for factory-direct quote.`;
-    if (product.img?.startsWith("http")) image = product.img;
-  } else if (page === "products" && filter && filter !== "All") {
-    title = `${filter} – Products | ${SITE_NAME}`;
-    description = `Shop ${filter} from ${SITE_NAME}, Salem. ISO certified agricultural equipment with pan-Tamil Nadu delivery.`;
-  }
-
+  const seo = resolveSeo({ page, product, filter });
   const route = { page, productId: product?.id ?? null, filter: filter || "All" };
   const canonical = siteUrl(hashFor(route));
+  const image =
+    page === "product-detail" && product?.img?.startsWith("http")
+      ? product.img
+      : SITE_OG_IMAGE;
 
-  document.title = title;
-  setMeta("description", description);
-  setMeta("og:title", title, "property");
-  setMeta("og:description", description, "property");
+  document.title = seo.title;
+  setMeta("description", seo.description);
+  setMeta("keywords", seo.keywords);
+  setMeta("geo.region", "IN-TN");
+  setMeta("geo.placename", `${BUSINESS_ADDRESS.city}, ${BUSINESS_ADDRESS.district}`);
+  setMeta("geo.position", "11.5384857;78.813587");
+  setMeta("ICBM", "11.5384857, 78.813587");
+
+  setMeta("og:title", seo.title, "property");
+  setMeta("og:description", seo.description, "property");
   setMeta("og:image", image, "property");
   setMeta("og:url", canonical, "property");
   setMeta("og:type", page === "product-detail" ? "product" : "website", "property");
   setMeta("og:site_name", SITE_NAME, "property");
+  setMeta("og:locale", "en_IN", "property");
+
   setMeta("twitter:card", "summary_large_image");
-  setMeta("twitter:title", title);
-  setMeta("twitter:description", description);
+  setMeta("twitter:title", seo.title);
+  setMeta("twitter:description", seo.description);
   setMeta("twitter:image", image);
+
   setCanonical(canonical);
 }
 
-export function localBusinessJsonLd() {
+export function buildStructuredData({ page, product } = {}) {
+  const graph = [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      alternateName: SITE_SHORT_NAME,
+      description: SITE_DESCRIPTION,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": ["Organization", "LocalBusiness", "Store"],
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      alternateName: ["BS Agro", "BS Agro Rotavators"],
+      description: `${SITE_NAME} — ${SITE_TAGLINE}. ISO certified rotavator & agricultural equipment manufacturer in ${BUSINESS_ADDRESS.district}, ${BUSINESS_ADDRESS.region}.`,
+      url: SITE_URL,
+      image: SITE_OG_IMAGE,
+      logo: SITE_OG_IMAGE,
+      telephone: PHONE_E164,
+      email: "info@bsagroequipments.com",
+      taxID: GST_NUMBER,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: BUSINESS_ADDRESS.street,
+        addressLocality: BUSINESS_ADDRESS.city,
+        addressRegion: BUSINESS_ADDRESS.region,
+        postalCode: BUSINESS_ADDRESS.postalCode,
+        addressCountry: BUSINESS_ADDRESS.country,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 11.5384857,
+        longitude: 78.813587,
+      },
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: BUSINESS_ADDRESS.district,
+      },
+      hasMap: GOOGLE_MAPS_URL,
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+      ],
+      priceRange: "₹₹",
+      keywords: SITE_KEYWORDS,
+    },
+  ];
+
+  if (page === "product-detail" && product) {
+    graph.push({
+      "@type": "Product",
+      "@id": `${SITE_URL}/#/product/${product.id}#product`,
+      name: product.name,
+      description: product.desc,
+      image: product.img,
+      category: product.cat,
+      brand: {
+        "@type": "Brand",
+        name: SITE_NAME,
+      },
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        seller: { "@id": `${SITE_URL}/#organization` },
+        url: siteUrl(`#/product/${product.id}`),
+      },
+      manufacturer: { "@id": `${SITE_URL}/#organization` },
+    });
+  }
+
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    image: SITE_OG_IMAGE,
-    telephone: "+91-7603809596",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Sitheri, Attur",
-      addressLocality: "Salem",
-      addressRegion: "Tamil Nadu",
-      postalCode: "636101",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 11.5384857,
-      longitude: 78.813587,
-    },
-    areaServed: "Tamil Nadu",
-    priceRange: "₹₹",
+    "@graph": graph,
   };
+}
+
+/** @deprecated use buildStructuredData */
+export function localBusinessJsonLd() {
+  return buildStructuredData();
 }

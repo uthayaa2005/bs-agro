@@ -114,7 +114,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-cr font-dm text-tx overflow-x-hidden">
-      <StructuredData />
+      <StructuredData
+        page={currentPage}
+        product={
+          currentPage === "product-detail" && selectedProduct
+            ? products.find((p) => p.id === selectedProduct)
+            : null
+        }
+      />
       <Navbar currentPage={currentPage} goPage={goPage} />
       <TrustStrip />
       <Ticker />

@@ -1,11 +1,12 @@
 {
   "short_name": "BS Agro",
-  "name": "BS Agro Equipments",
-  "description": "Rotavator & agricultural equipment manufacturer, Salem",
+  "name": "BS Agro Equipments — Best Rotavator Company in Salem",
+  "description": "Best rotavator manufacturer in Salem district. Sitheri, Attur, Tamil Nadu. Rotavators, cultivators & agricultural equipment.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fafaf8",
   "theme_color": "#14532d",
+  "lang": "en-IN",
   "icons": [
     {
       "src": "logo.png",

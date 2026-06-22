@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# BS Agro Equipments — bsagroequipments.com
+# Best rotavator company in Salem district, Tamil Nadu
+
 Sitemap: https://bsagroequipments.com/sitemap.xml
