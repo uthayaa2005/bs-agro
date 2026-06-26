@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ENQUIRY_FORM_URL } from "../constants/links";
+import { pathFor } from "../utils/historyNav";
 
 const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -8,6 +9,10 @@ const NAV_LINKS = [
   { id: "reviews", label: "Reviews" },
   { id: "contact", label: "Contact" },
 ];
+
+function navHref(page) {
+  return pathFor({ page, productId: null, filter: "All" });
+}
 
 export default function Navbar({ currentPage, goPage }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,9 +29,13 @@ export default function Navbar({ currentPage, goPage }) {
       <div className="h-[70px] px-4 sm:px-6 lg:px-10 flex items-center justify-between">
 
         {/* LOGO */}
-        <div
+        <a
+          href={navHref("home")}
+          onClick={(e) => {
+            e.preventDefault();
+            handleNav("home");
+          }}
           className="flex items-center gap-3 cursor-pointer shrink-0"
-          onClick={() => handleNav("home")}
         >
 
           <img
@@ -40,7 +49,7 @@ export default function Navbar({ currentPage, goPage }) {
             BS <span className="text-y1">Agro</span>
           </span>
 
-        </div>
+        </a>
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:flex items-center gap-1">
@@ -50,9 +59,13 @@ export default function Navbar({ currentPage, goPage }) {
             {NAV_LINKS.map((link) => (
               <li key={link.id}>
 
-                <button
-                  onClick={() => handleNav(link.id)}
-                  className={`text-[14px] font-medium px-4 h-[70px] flex items-center border-b-[3px] transition-all duration-200 bg-transparent
+                <a
+                  href={navHref(link.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav(link.id);
+                  }}
+                  className={`text-[14px] font-medium px-4 h-[70px] flex items-center border-b-[3px] transition-all duration-200
                     ${
                       currentPage === link.id
                         ? "text-y1 border-b-y1 bg-white/[0.05]"
@@ -61,7 +74,7 @@ export default function Navbar({ currentPage, goPage }) {
                   `}
                 >
                   {link.label}
-                </button>
+                </a>
 
               </li>
             ))}
@@ -107,9 +120,13 @@ export default function Navbar({ currentPage, goPage }) {
             {NAV_LINKS.map((link) => (
               <li key={link.id}>
 
-                <button
-                  onClick={() => handleNav(link.id)}
-                  className={`w-full text-left px-4 py-3 rounded-lg text-[14px] transition-all duration-200
+                <a
+                  href={navHref(link.id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav(link.id);
+                  }}
+                  className={`block w-full text-left px-4 py-3 rounded-lg text-[14px] transition-all duration-200
                     ${
                       currentPage === link.id
                         ? "bg-white/10 text-y1"
@@ -118,7 +135,7 @@ export default function Navbar({ currentPage, goPage }) {
                   `}
                 >
                   {link.label}
-                </button>
+                </a>
 
               </li>
             ))}
