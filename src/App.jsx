@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useRef } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import Ticker from "./components/Ticker";
 import HomePage from "./pages/HomePage";
@@ -162,6 +163,7 @@ export default function App() {
       )}
 
       <MobileBottomBar currentPage={currentPage} goPage={goPage} />
+      <Analytics />
     </div>
   );
 }
