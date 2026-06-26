@@ -1,11 +1,34 @@
 import React from "react";
 import { SITE_URL } from "../constants/site";
 
+const FOOTER_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
+  { href: "/about", label: "About" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-soil px-4 sm:px-6 md:px-8 py-6 sm:py-7">
 
       <div className="max-w-[1200px] mx-auto text-center">
+
+        <nav aria-label="Site pages" className="mb-4">
+          <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 list-none p-0 m-0">
+            {FOOTER_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-[11px] sm:text-[12px] text-white/55 hover:text-y1 transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <p className="text-[11px] sm:text-[12px] md:text-[13px] text-white/50 leading-[1.8]">
 
