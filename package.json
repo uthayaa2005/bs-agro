@@ -16,7 +16,8 @@
   "scripts": {
     "prebuild": "node scripts/generate-sitemap.js",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "postbuild": "node scripts/generate-seo-shells.js"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],

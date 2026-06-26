@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.bsagroequipments.com/sitemap.xml
+Sitemap: https://bsagroequipments.com/sitemap.xml

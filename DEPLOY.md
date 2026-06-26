@@ -54,8 +54,10 @@ npx serve -s build
 - [ ] Open https://bsagroequipments.com and test all pages on mobile
 - [ ] Test **Call**, **WhatsApp**, and enquiry form links
 - [ ] Submit sitemap in [Google Search Console](https://search.google.com/search-console):
-  - Add property: `https://bsagroequipments.com`
-  - Sitemaps → submit `https://bsagroequipments.com/sitemap.xml`
+  - Add property: `https://www.bsagroequipments.com` (preferred) and/or `https://bsagroequipments.com`
+  - **Sitemaps** → submit `https://www.bsagroequipments.com/sitemap.xml`
+  - **URL Inspection** → test `https://www.bsagroequipments.com/products` → **Request indexing**
+  - Repeat for home page and top product URLs
 - [ ] Create/update **Google Business Profile** with the new website URL
 - [ ] Optional: set up `info@bsagroequipments.com` via Google Workspace or Zoho Mail
 
